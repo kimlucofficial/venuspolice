@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venus Police Department</title>
+<meta name="description" content="Cổng thông tin chính thức của Venus Police Department — Sở Cảnh Sát Thành Phố Venus. Ban lãnh đạo, lực lượng, cấp bậc, bộ luật và bảng xếp hạng sĩ quan.">
+<meta name="theme-color" content="#040a11">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Venus Police Department">
+<meta property="og:description" content="Cổng thông tin chính thức của Sở Cảnh Sát Thành Phố Venus.">
+<meta property="og:image" content="assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aur"><i></i><i></i><i></i></div><canvas id="bg"></canvas><div class="vig"></div><div class="grain"></div><div class="scrollbar" id="scrollbar"></div>
+<div class="marks" id="marks"></div>
+<div class="intro" id="intro">
+  <div class="ib">
+    <div class="halo"><svg class="hros" id="hros" viewBox="0 0 500 500"></svg><span class="hr hr2"></span><span class="hr hr1"></span><span class="hr hr3"></span><i></i><i></i><i></i><img src="assets/logo.webp" alt="Venus Police"></div>
+    <div class="p-k">Cổng thông tin chính thức</div>
+    <div class="p-t">Venus Police <em>Department</em></div>
+    <div class="p-s">Sở Cảnh Sát Thành Phố Venus</div>
+    <div class="p-rule"></div>
+    <div class="p-cards">
+      <button class="p-card" type="button" data-to="boluat" data-n="01"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 16h6"/></svg><b>Bộ luật</b><small>6 bộ luật</small></button>
+      <button class="p-card" type="button" data-to="lucluong" data-n="02"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><b>Lực lượng</b><small>SASP · LSPD · BCSO</small></button>
+      <button class="p-card" type="button" data-to="xephang" data-n="03"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><b>Xếp hạng</b><small>Sĩ quan nổi bật</small></button>
+    </div>
+    <button class="p-go" id="pGo" type="button"><span><b>Truy cập hệ thống</b><small>Nhấn Enter để vào</small></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+  </div>
+  <div class="p-foot"><span class="l">Est. 2026</span><span class="c"><span class="ln"></span>Cổng thông tin · Sẵn sàng</span><span class="r">Venus World</span></div>
+</div>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="side l">
+      <a href="#gioithieu" data-s="gioithieu">Giới thiệu</a>
+      <a href="#lucluong" data-s="lucluong">Lực lượng</a>
+    </div>
+    <a class="crest" href="#top"><i></i><img src="assets/logo.webp" alt="Venus Police"><i></i></a>
+    <div class="side r">
+      <a href="#chihuy" data-s="chihuy">Chỉ huy</a>
+      <a href="#boluat" data-s="boluat">Bộ luật</a>
+      <a href="#xephang" data-s="xephang">Xếp hạng</a>
+    </div>
+  </div>
+  <button class="sbtn" id="sOpen" type="button"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.8 12.8L17 17"/></svg><span>Tra cứu</span><kbd>Ctrl K</kbd></button>
+</nav>
+
+<main id="deck">
+<div class="slide" id="s-top" data-t="Trang chủ">
+<header class="hero" id="top">
+  <div class="beam b1"></div><div class="beam b2"></div>
+  <div class="wrap hero-main">
+    <div>
+      <div class="k">Sở Cảnh Sát Thành Phố Venus</div>
+      <h1>Venus Police<em>Department</em></h1>
+      <div class="motto"><span>Bảo vệ</span><span>Phục vụ</span><span>Chính trực</span></div>
+      <div class="cta">
+        <a class="btn pri" href="#boluat">Bộ luật thành phố <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn" href="#xephang">Bảng xếp hạng</a>
+      </div>
+      <div class="status"><span class="ln"></span><span>Hệ thống <b>hoạt động</b> · Cổng thông tin chính thức</span></div>
+    </div>
+    <div class="seal">
+      <div class="r r2"></div><svg class="ros" id="ros" viewBox="0 0 500 500"></svg><div class="r r1"></div><div class="radar"></div><div class="ping"></div><div class="ping p2"></div><div class="r r3"></div>
+      <img src="assets/logo.webp" alt="">
+    </div>
+  </div>
+  <div class="wrap"><div class="hero-strip">
+    <a href="#gioithieu" data-n="01"><span><b>Ban lãnh đạo</b><small>Những người dẫn dắt</small></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    <a href="#lucluong" data-n="02"><span><b>Ba lực lượng</b><small>SASP · LSPD · BCSO</small></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    <a href="#boluat" data-n="03"><span><b>Bộ luật</b><small>Sáu bộ luật thành phố</small></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    <a href="#xephang" data-n="04"><span><b>Xếp hạng</b><small>Sĩ quan nổi bật</small></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+  </div></div>
+</header>
+<div class="marq"><div class="tr" id="marq"></div></div>
+</div>
+
+<div class="slide" id="s-gioithieu" data-t="Ban lãnh đạo">
+<section class="blk" id="gioithieu">
+  <div class="wmk">COMMAND</div>
+  <div class="wrap">
+    <div class="head"><div><div class="num">01</div><h2>Ban lãnh đạo</h2></div><a class="btn" id="discordBtn" target="_blank" rel="noopener">Discord UPD <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h8v8M13 3L3 13"/></svg></a></div>
+    <div class="people" id="people"></div>
+  </div>
+</section>
+</div>
+
+<div class="slide" id="s-lucluong" data-t="Lực lượng">
+<section class="blk" id="lucluong">
+  <div class="wmk">FORCES</div>
+  <div class="wrap">
+    <div class="head"><div><div class="num">02</div><h2>Các đơn vị trực thuộc</h2></div></div>
+    <div class="forces" id="forces"></div>
+    <div class="cadet panel"><div><b>Academy</b><span>Học viện đào tạo sĩ quan mới</span></div><div class="mono" style="color:var(--steel);letter-spacing:.12em">CADET 600 – 699</div></div>
+  </div>
+</section>
+</div>
+
+<div class="slide" id="s-chihuy" data-t="Cấp bậc">
+<section class="blk" id="chihuy">
+  <div class="wmk">RANKS</div>
+  <div class="wrap">
+    <div class="head"><div><div class="num">03</div><h2>Cấp bậc điều hành</h2></div></div>
+    <div class="acc" id="acc"></div>
+  </div>
+</section>
+</div>
+
+<div class="slide" id="s-boluat" data-t="Bộ luật">
+<section class="blk" id="boluat">
+  <div class="wmk">LAW</div>
+  <div class="wrap">
+    <div class="head"><div><div class="num">04</div><h2>Bộ luật thành phố</h2></div></div>
+    <div class="lib">
+      <div class="lib-nav" id="libNav"></div>
+      <div id="reader"></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="slide" id="s-xephang" data-t="Xếp hạng">
+<section class="blk" id="xephang">
+  <div class="wmk">HONOR</div>
+  <div class="wrap">
+    <div class="head"><div><div class="num">05</div><h2>Bảng xếp hạng sĩ quan</h2></div></div>
+    <div class="lb-bar">
+      <div class="seg" id="lbPeriod"><button data-p="week" class="on">Tuần</button><button data-p="month">Tháng</button><button data-p="all">Toàn thời gian</button></div>
+      <div class="seg" id="lbUnit"><button data-u="ALL" class="on">Tất cả</button><button data-u="SASP">SASP</button><button data-u="LSPD">LSPD</button><button data-u="BCSO">BCSO</button></div>
+    </div>
+    <div class="podium" id="podium"></div>
+    <div class="lb-grid">
+      <div class="panel" style="overflow-x:auto">
+        <div class="lb-tools"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.8 12.8L17 17"/></svg><input id="lbQ" type="text" placeholder="Tìm sĩ quan hoặc callsign" autocomplete="off"><span id="lbCount"></span></div>
+        <table class="lbt">
+          <thead><tr><th>Hạng</th><th>Sĩ quan</th><th class="hide-m">Đơn vị</th><th class="s hide-m" data-k="hours">Giờ trực</th><th class="s hide-m" data-k="arrests">Bắt giữ</th><th class="s hide-m" data-k="calls">Cuộc gọi</th><th class="s on" data-k="score">Điểm</th></tr></thead>
+          <tbody id="lbBody"></tbody>
+        </table>
+      </div>
+      <div class="lb-side">
+        <div class="panel"><h4>Xếp hạng đơn vị</h4><div id="units"></div></div>
+        <div class="panel crit"><h4>Cách tính điểm</h4><div><span>1 giờ trực</span><b>10 điểm</b></div><div><span>1 vụ bắt giữ</span><b>25 điểm</b></div><div><span>1 cuộc gọi phản hồi</span><b>5 điểm</b></div></div>
+      </div>
+    </div>
+    <p class="lb-note" style="margin-top:20px"><b>Dữ liệu mẫu</b> · Số liệu hiển thị chỉ để xem bố cục, sẽ thay bằng dữ liệu thật của server.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-b"><img src="assets/logo.webp" alt=""><div><strong>Venus Police Department</strong><span>Sở Cảnh Sát Thành Phố Venus</span></div></div>
+      <div class="f-col"><h5>Điều hướng</h5><a href="#gioithieu">Ban lãnh đạo</a><a href="#lucluong">Lực lượng</a><a href="#chihuy">Cấp bậc</a><a href="#xephang">Bảng xếp hạng</a></div>
+      <div class="f-col" id="fLaws"><h5>Bộ luật</h5></div>
+    </div>
+    <div class="f-bot"><span>© 2026 Venus Police Department</span><span>Bảo vệ · Phục vụ · Chính trực</span></div>
+  </div>
+</footer>
+</div>
+</main>
+<div class="beamline" id="beamline"></div><div class="flash" id="flash"></div>
+<div class="dots" id="dots"></div>
+<div class="deckbar"><span class="cnt" id="dCnt"></span><span class="ttl" id="dTtl" hidden></span><span class="hint" id="dHint"><span>Cuộn để chiếu mục tiếp theo</span><i></i></span></div>
+
+<div class="sov" id="sov">
+  <div class="sbox">
+    <div class="sin"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.8 12.8L17 17"/></svg><input id="sQ" type="text" placeholder="Nhập từ khoá: vượt tốc độ, mặt nạ, con tin…" autocomplete="off"><kbd id="sClose">Esc</kbd></div>
+    <div class="smeta" id="sMeta">Gõ không dấu cũng tìm được.</div>
+    <div class="sres" id="sRes"></div>
+  </div>
+</div>
+
+<div id="lawSrc" hidden></div>
+
+<script src="js/data.js"></script>
+<script src="js/laws.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
