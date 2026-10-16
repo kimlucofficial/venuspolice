@@ -6,19 +6,19 @@ Website tĩnh (HTML/CSS/JS thuần), không cần build. Deploy thẳng lên Ver
 
 ```
 index.html        Bố cục trang
-css/style.css     Toàn bộ giao diện
-js/data.js        Nội dung: Discord, ban lãnh đạo, lực lượng, cấp bậc, bảng xếp hạng
-js/laws.js        Nội dung 6 bộ luật
-js/main.js        Hiệu ứng, slide, tra cứu, bảng xếp hạng
-assets/           Logo, favicon, ảnh chia sẻ
+style.css         Toàn bộ giao diện
+data.js           Nội dung: Discord, ban lãnh đạo, lực lượng, cấp bậc, bảng xếp hạng
+laws.js           Nội dung 6 bộ luật
+main.js           Hiệu ứng, slide, tra cứu, bảng xếp hạng
+logo.webp, favicon.png, og.png
 vercel.json       Cấu hình Vercel
 ```
 
 ## Sửa nội dung
 
-- **Link Discord, ban lãnh đạo, ảnh:** `js/data.js` → `discord`, `people` (dán link ảnh vào `img`).
-- **Bảng xếp hạng:** `js/data.js` → `officers` (hiện là dữ liệu mẫu) và `points` (hệ số điểm).
-- **Bộ luật:** `js/laws.js`. Thêm loại cướp: sao chép một khối `<details class="heist">…</details>`.
+- **Link Discord, ban lãnh đạo, ảnh:** `data.js` → `discord`, `people` (dán link ảnh vào `img`).
+- **Bảng xếp hạng:** `data.js` → `officers` (hiện là dữ liệu mẫu) và `points` (hệ số điểm).
+- **Bộ luật:** `laws.js`. Thêm loại cướp: sao chép một khối `<details class="heist">…</details>`.
 
 ## Chạy thử trên máy
 
