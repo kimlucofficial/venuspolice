@@ -12,27 +12,43 @@ var DATA = {
     { role: 'Chief Of Police',        name: 'Oc Tieu',      img: '', discord: '872509209693003776' },
     { role: 'Sheriff',                name: 'Johnny Will',  img: '', discord: '1086562058717376542' }
   ],
+  /* 02 · High Command — điền name và discord (ID Discord) cho từng người */
+  highCommand: [
+    { role: 'Assistant Chief',           name: '', img: '', discord: '' },
+    { role: 'Deputy Chief of Police',    name: '', img: '', discord: '' },
+    { role: 'UnderSheriff',              name: '', img: '', discord: '' },
+    { role: 'Deputy Chief of Sheriff',   name: '', img: '', discord: '' }
+  ],
+  /* 03 · Command — 6 ô: hàng trên Captain, hàng dưới Lieutenant */
+  command: [
+    { role: 'Captain',    name: '', img: '', discord: '' },
+    { role: 'Captain',    name: '', img: '', discord: '' },
+    { role: 'Captain',    name: '', img: '', discord: '' },
+    { role: 'Lieutenant', name: '', img: '', discord: '' },
+    { role: 'Lieutenant', name: '', img: '', discord: '' },
+    { role: 'Lieutenant', name: '', img: '', discord: '' }
+  ],
   forces: [
     { code: 'SASP', name: 'San Andreas State Police',       range: '800 – 899', img: '' },
     { code: 'LSPD', name: 'Los Santos Police Department',   range: '200 – 299', img: '' },
     { code: 'BCSO', name: "Blaine County Sheriff's Office", range: '300 – 399', img: '' }
   ],
   ladder: [
-    { code: 'HHC', title: 'High High Command', gold: true,
+    { code: 'HHC', title: 'Chỉ Huy Tối Cao', gold: true,
       ranks: ['Commissioner', 'Deputy Commissioner', 'Assistant Commissioner'],
       desc: 'Chánh văn phòng UPD, Ủy viên Cảnh sát, Phó Ủy viên cảnh sát, Trợ lý Ủy viên cảnh sát — người đại diện pháp luật của <b>Cục Cảnh sát Thống nhất</b>.' },
-    { code: 'HC', title: 'High Command', gold: true,
+    { code: 'HC', title: 'Chỉ Huy Cấp Cao', gold: true,
       ranks: ['Sheriff', 'Chief of Police', 'Chief SASP', 'Assistant Chief SASP', 'Undersheriff', 'Assistant Chief', 'Deputy Chief', 'Chief Deputy', 'Commander'],
-      desc: 'Các cảnh sát Tư lệnh cấp cao nhất thuộc <b>Bộ tư lệnh tối cao</b>.' },
-    { code: 'Command', title: 'Bộ tư lệnh',
+      desc: 'Các cảnh sát Tư lệnh cấp cao nhất thuộc <b>UPD</b>.' },
+    { code: 'Command', title: 'Chỉ Huy',
       ranks: ['Captain', 'Lieutenants'],
-      desc: 'Các cảnh sát chỉ huy cấp cao thuộc <b>Bộ tư lệnh</b>.',
+      desc: 'Các cảnh sát chỉ huy cấp cao thuộc <b>UPD</b>.',
       notes: [ { r: 'Lieutenants', d: 'Bao gồm trưởng các bộ phận, các cảnh sát chỉ huy trực ban và các cảnh sát chỉ huy.' } ] },
     { code: 'Supervisor', title: 'Giám sát',
       ranks: ['Sergeants', 'Corporal'],
       desc: 'Các cảnh sát thành viên chỉ huy, giám sát.',
       notes: [ { r: 'Sergeants', d: 'Các cảnh sát giám sát ca trực.' },
-               { r: 'Corporals', d: 'Các cảnh sát đóng vai trò cầu nối của Bộ Tư lệnh và các cảnh sát tuần tra thường trực.' } ] },
+               { r: 'Corporals', d: 'Các cảnh sát đóng vai trò cầu nối của UPD và các cảnh sát tuần tra thường trực.' } ] },
     { code: 'Patrol', title: 'Tuần tra',
       ranks: ['Senior Officer', 'Senior Deputy', 'Officer', 'Deputy', 'Trooper'],
       desc: 'Các cảnh sát thuộc các bộ phận tuần tra.' },
@@ -68,3 +84,4 @@ var DATA = {
     { name: 'Sĩ quan O', cs: 'CADET-611', rank: 'Solo Cadet',    unit: 'SASP', week: [12, 2, 18],  month: [36, 6, 47],    all: [36, 6, 47] }
   ]
 };
+if (typeof module !== 'undefined') module.exports = DATA;

@@ -22,25 +22,29 @@
   })();
 
   $('discordBtn').href = DATA.discord;
-  $('people').innerHTML = DATA.people.map(function(p){
-    return '<figure class="person panel'+(p.lead?' lead':'')+'"><div class="phw">'+(p.lead?corners:'')+ph(p.img)+'</div>'+'<figcaption><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
-  }).join('');
-  /* Ban lãnh đạo: tự lấy avatar + tên từ Discord */
+  function card(p, lead){
+    return '<figure class="person panel'+(lead?' lead':'')+'"'+(p.discord?' data-dc="'+esc(p.discord)+'"':'')+(p.lockName?' data-lock="1"':'')+(p.img?' data-img="1"':'')+'><div class="phw">'+(lead?corners:'')+ph(p.img)+'</div>'+
+      '<figcaption><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name || '—')+'</div></figcaption></figure>';
+  }
+  $('people').innerHTML = DATA.people.map(function(p){ return card(p, p.lead); }).join('');
+  $('crewHC').innerHTML = (DATA.highCommand || []).map(function(p){ return card(p); }).join('');
+  $('crewC').innerHTML = (DATA.command || []).map(function(p){ return card(p); }).join('');
+  /* Tự lấy avatar + tên từ Discord cho mọi thẻ có ID */
   (function(){
-    var list = DATA.people.filter(function(p){ return p.discord; });
-    if (!list.length || location.protocol === 'file:') return;
-    fetch('/api/discord-users?ids=' + list.map(function(p){ return p.discord; }).join(',')).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#gioithieu .person[data-dc]'));
+    if (!cards.length || location.protocol === 'file:') return;
+    var ids = cards.map(function(c){ return c.dataset.dc; }).filter(function(v, i, a){ return a.indexOf(v) === i; });
+    fetch('/api/discord-users?ids=' + ids.join(',')).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
       if (!d || !d.users) return;
-      var cards = $('people').querySelectorAll('.person');
-      DATA.people.forEach(function(p, i){
-        var u = p.discord && d.users[p.discord], c = cards[i]; if (!u || !c) return;
-        if (!p.img){
+      cards.forEach(function(c){
+        var u = d.users[c.dataset.dc]; if (!u) return;
+        if (!c.dataset.img){
           var box = c.querySelector('.ph'), im = new Image();
           im.alt = ''; im.referrerPolicy = 'no-referrer';
           im.onload = function(){ box.innerHTML = ''; box.appendChild(im); };
           im.src = u.avatar;
         }
-        if (!p.lockName && u.name) c.querySelector('.who').textContent = u.name;
+        if (!c.dataset.lock && u.name) c.querySelector('.who').textContent = u.name;
       });
     }).catch(function(){});
   })();

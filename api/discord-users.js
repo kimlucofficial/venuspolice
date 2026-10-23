@@ -5,8 +5,8 @@
    Biến môi trường (Vercel → Project → Settings → Environment Variables):
      DISCORD_BOT_TOKEN   Token của bot (bot phải ở trong server)
      DISCORD_GUILD_ID    ID server Discord
-     DISCORD_USER_IDS    (tuỳ chọn) danh sách ID được phép, cách nhau dấu phẩy.
-                         Bỏ trống thì dùng danh sách mặc định bên dưới.
+     DISCORD_USER_IDS    (tuỳ chọn) thêm ID được phép, cách nhau dấu phẩy.
+   Mọi ID Discord ghi trong data.js (people, highCommand, command) tự được phép.
    ========================================================= */
 const API = 'https://discord.com/api/v10';
 const DEFAULT_IDS = [
@@ -74,8 +74,14 @@ module.exports = async function handler(req, res) {
     return res.end(JSON.stringify({ error: 'missing_config' }));
   }
 
-  const allowed = (process.env.DISCORD_USER_IDS || DEFAULT_IDS.join(','))
-    .split(',').map((s) => s.trim()).filter(Boolean);
+  // Được phép: ID khai báo trong data.js + DEFAULT_IDS + DISCORD_USER_IDS
+  let fromData = [];
+  try {
+    const D = require('../data.js');
+    fromData = [].concat(D.people || [], D.highCommand || [], D.command || []).map((p) => p.discord).filter(Boolean);
+  } catch (e) {}
+  const allowed = [...DEFAULT_IDS, ...fromData, ...String(process.env.DISCORD_USER_IDS || '').split(',')]
+    .map((s) => String(s).trim()).filter(Boolean);
   const ids = [...new Set(String((req.query && req.query.ids) || '').split(',').map((s) => s.trim()))]
     .filter((id) => /^\d{17,20}$/.test(id) && allowed.includes(id))
     .slice(0, 20);
