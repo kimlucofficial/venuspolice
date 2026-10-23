@@ -3,17 +3,14 @@
    ========================================================= */
 var DATA = {
   discord: 'https://discord.gg/',
+  /* Ban lãnh đạo. discord: ID tài khoản Discord → tự lấy avatar + tên trong server.
+     Muốn giữ cố định tên ghi ở đây thì thêm  lockName: true  */
   people: [
-    { role: 'Assistant Commissioner', name: 'James Wilson', img: '' },
-    { role: 'Commissioner',           name: 'Phước Amory',  img: '', lead: true },
-    { role: 'Deputy Commissioner',    name: 'Lebill',       img: '' },
-    { role: 'Chief Of Police',        name: 'Oc Tieu',      img: '' },
-    { role: 'Sheriff',                name: 'Johnny Will',  img: '' }
-  ],
-  /* Thành viên tự lấy từ Discord (avatar + tên) — hiện ở phần Ban lãnh đạo.
-     id: ID role Discord. title: tiêu đề hiển thị (bỏ trống sẽ dùng tên role trên Discord). */
-  discordRoles: [
-    { id: '1538867775865356339', title: 'Cảnh sát trưởng' }
+    { role: 'Assistant Commissioner', name: 'James Wilson', img: '', discord: '438691814099386370' },
+    { role: 'Commissioner',           name: 'Phước Amory',  img: '', discord: '946006418773925939', lead: true },
+    { role: 'Deputy Commissioner',    name: 'Lebill',       img: '', discord: '520037888180748288' },
+    { role: 'Chief Of Police',        name: 'Oc Tieu',      img: '', discord: '872509209693003776' },
+    { role: 'Sheriff',                name: 'Johnny Will',  img: '', discord: '1086562058717376542' }
   ],
   forces: [
     { code: 'SASP', name: 'San Andreas State Police',       range: '800 – 899', img: '' },
@@ -43,6 +40,13 @@ var DATA = {
       ranks: ['Solo Cadet', 'Cadet'],
       desc: 'Các cảnh sát thuộc quản lý tại <b>Academy</b>.' }
   ],
+
+  /* Số liệu bảng xếp hạng theo ID Discord của sĩ quan.
+     Danh sách sĩ quan tự lấy từ role cảnh sát trên Discord; ai chưa có ở đây sẽ tính 0.
+     Mẫu:  '123456789012345678': { rank: 'Sergeant', week: [38, 14, 52], month: [142, 51, 198], all: [610, 233, 802] },
+     (week / month / all = [giờ trực, bắt giữ, cuộc gọi]) */
+  stats: {
+  },
 
   /* Bảng xếp hạng — DỮ LIỆU MẪU. Thay bằng số liệu thật:
      week / month / all = [giờ trực, bắt giữ, cuộc gọi]; prev = hạng tuần trước */

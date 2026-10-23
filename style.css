@@ -1112,24 +1112,89 @@ body.locked #deck,body.locked .deckbar,body.locked .dots,body.locked .beamline{v
   .pod .mini{font-size:12.5px}
 }
 
-/* =================== Thành viên theo role Discord =================== */
-#roster{max-width:900px;margin:0 auto}
-.roster{margin:0 0 90px}
-.roster-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;margin-bottom:26px;border-bottom:1px solid var(--line3)}
-.roster-h b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,2vw,26px);letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 0 14px rgba(79,195,255,.35)}
-.roster-h span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
-.roster-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,170px));justify-content:center;gap:28px 22px}
-.rm{min-width:0;opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}
-.roster.in .rm{opacity:1;transform:none}
-.rm .ph{aspect-ratio:1/1;position:relative;overflow:hidden;box-shadow:0 0 0 1px var(--line3)}
-.rm .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(4,10,17,.75));pointer-events:none}
-.rm .ph img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s;filter:saturate(.9)}
-.rm:hover .ph img{transform:scale(1.05);filter:none}
-.rm:hover .ph{box-shadow:0 0 0 1px rgba(143,220,255,.6),0 0 30px rgba(79,195,255,.2)}
-.rm-i{font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:rgba(143,220,255,.55)}
-.rm figcaption{padding-top:12px}
-.rm .role{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rm .who{margin-top:2px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:720px){.roster{margin:0 0 60px}.roster-g{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:22px 14px}.rm .who{font-size:15.5px}}
-@media (max-width:380px){.roster-g{grid-template-columns:1fr 1fr}}
-@media (prefers-reduced-motion:reduce){.rm{opacity:1!important;transform:none!important}}
+
+/* Avatar Discord trong bảng xếp hạng */
+.pod .av,.lbt .who .mav{position:relative;overflow:hidden}
+.pod .av img,.lbt .who .mav img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Quy định chung theo cấp độ cướp */
+.law .lvl-r{margin:12px 0 10px}
+.law .lvl-r ul li{padding-top:8px;padding-bottom:8px}
+
+/* =================== TOP 3: BỤC VINH DANH =================== */
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr);align-items:end;gap:0 6px;max-width:980px;margin:0 auto 64px;padding-top:40px}
+.stage::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-34px;height:70px;background:radial-gradient(50% 50% at 50% 0%,rgba(143,220,255,.16),transparent 70%);pointer-events:none}
+.pd{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;
+  --m1:#ffffff;--m2:#c4cfdc;--m3:#6f7d8f;--mg:rgba(196,207,220,.22)}
+.pd1{--m1:#fff1c1;--m2:#e3b65a;--m3:#8c6422;--mg:rgba(227,182,90,.28);z-index:2}
+.pd3{--m1:#ffd9bd;--m2:#c9875a;--m3:#6e3f22;--mg:rgba(201,135,90,.24)}
+.pd1::before{content:"";position:absolute;left:50%;top:-80px;width:150%;height:calc(100% + 80px);transform:translateX(-50%);pointer-events:none;z-index:-1;
+  background:conic-gradient(from 180deg at 50% 0%,transparent 157deg,rgba(255,236,190,.06) 168deg,rgba(255,236,190,.11) 180deg,rgba(255,236,190,.06) 192deg,transparent 203deg);
+  -webkit-mask:linear-gradient(180deg,#000 40%,transparent 92%);mask:linear-gradient(180deg,#000 40%,transparent 92%)}
+
+/* người đứng trên bục */
+.pd-who{display:flex;flex-direction:column;align-items:center;width:100%;padding:0 8px 18px;text-align:center}
+.pd-crown{width:40px;height:20px;margin-bottom:10px;filter:drop-shadow(0 2px 6px rgba(227,182,90,.45))}
+.pd-av{width:clamp(64px,6.2vw,84px);aspect-ratio:1;border-radius:50%;padding:2px;
+  background:conic-gradient(from 210deg,var(--m3),var(--m1),var(--m2),var(--m3),var(--m1),var(--m3));
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.9),0 0 26px -6px var(--mg)}
+.pd1 .pd-av{width:clamp(84px,8vw,112px);padding:3px}
+.pd-av i{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid #050c15;
+  background:radial-gradient(circle at 30% 25%,#1d5a8c,#0a2238);font:normal 800 clamp(18px,1.7vw,24px) 'Montserrat',sans-serif;color:#fff;letter-spacing:.02em}
+.pd1 .pd-av i{font-size:clamp(22px,2.2vw,30px)}
+.pd-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pd-nm{max-width:100%;margin-top:14px;font:700 clamp(15px,1.45vw,19px)/1.25 'Montserrat',sans-serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pd1 .pd-nm{font-size:clamp(17px,1.75vw,23px)}
+.pd-cs{max-width:100%;margin-top:5px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* khối bục */
+.pd-blk{position:relative;width:100%;display:flex;flex-direction:column;transform-origin:bottom}
+.pd-top{height:14px;margin:0 -1px;clip-path:polygon(5% 0,95% 0,100% 100%,0 100%);
+  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05));position:relative}
+.pd-top::before{content:"";position:absolute;left:5%;right:5%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--m1),transparent)}
+.pd-face{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;padding:18px 10px 20px;overflow:hidden;
+  background:linear-gradient(180deg,#112338 0%,#0a1726 45%,#060f19 100%);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.05),inset -1px 0 0 rgba(0,0,0,.5)}
+.pd-face::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--m2) 20%,var(--m1) 50%,var(--m2) 80%,transparent);opacity:.9}
+.pd-face::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.035) 45%,transparent 60%);pointer-events:none}
+.pd1 .pd-blk{height:clamp(250px,23vw,300px)}
+.pd2 .pd-blk{height:clamp(214px,19.5vw,254px)}
+.pd3 .pd-blk{height:clamp(196px,17vw,222px)}
+.pd-lb{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--m2);opacity:.9}
+.pd-rk{margin-top:2px;font:normal 800 clamp(52px,5.4vw,72px)/1 'Montserrat',sans-serif;letter-spacing:-.02em;
+  background:linear-gradient(180deg,var(--m1) 0%,var(--m2) 48%,var(--m3) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}
+.pd1 .pd-rk{font-size:clamp(72px,7.6vw,104px)}
+.pd-pt{margin-top:8px;display:flex;align-items:baseline;gap:8px;font:300 clamp(22px,2.2vw,30px)/1 'Montserrat',sans-serif;color:#fff;font-variant-numeric:tabular-nums}
+.pd1 .pd-pt{font-size:clamp(26px,2.7vw,38px)}
+.pd-pt .v{font:inherit;color:inherit}
+.pd-pt small{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
+.pd-mini{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 12px;font-size:11.5px;color:var(--mut);white-space:nowrap}
+.pd-mini b{color:var(--tx2);font-weight:600}
+.pd-empty{visibility:hidden}
+
+/* hiệu ứng xuất hiện */
+.pd{opacity:0}
+.pd.go{animation:pdFade .6s ease forwards}
+.pd.go .pd-blk{animation:pdRise .9s cubic-bezier(.2,.8,.2,1) both}
+.pd.go .pd-who{animation:pdDrop .8s cubic-bezier(.2,.8,.2,1) both}
+.pd3.go .pd-blk{animation-delay:.05s}.pd3.go .pd-who{animation-delay:.45s}
+.pd2.go .pd-blk{animation-delay:.15s}.pd2.go .pd-who{animation-delay:.55s}
+.pd1.go .pd-blk{animation-delay:.25s}.pd1.go .pd-who{animation-delay:.7s}
+@keyframes pdFade{to{opacity:1}}
+@keyframes pdRise{from{transform:scaleY(.2);opacity:0}to{transform:none;opacity:1}}
+@keyframes pdDrop{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.pd,.pd .pd-blk,.pd .pd-who{opacity:1!important;animation:none!important;transform:none!important}}
+
+@media (max-width:720px){
+  .stage{gap:0 4px;margin-bottom:48px}
+  .pd-who{padding:0 2px 14px}
+  .pd-mini{display:none}
+  .pd-face{padding:14px 4px 16px}
+  .pd-lb{font-size:8.5px;letter-spacing:.18em}
+  .pd-cs{font-size:9px;letter-spacing:.06em}
+  .pd1 .pd-blk{height:200px}.pd2 .pd-blk{height:168px}.pd3 .pd-blk{height:148px}
+  .pd1::before{width:180%}
+}
+@media (max-width:380px){.pd-nm{font-size:13.5px}.pd1 .pd-nm{font-size:15px}.pd-av{width:54px}.pd1 .pd-av{width:70px}}
+.pd.still .pd-blk,.pd.still .pd-who{animation:none}

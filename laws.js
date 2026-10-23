@@ -34,7 +34,7 @@ document.getElementById('lawSrc').innerHTML = `
 
 <h3>Khi bạn bị bắt</h3>
 <div class="box"><ul>
-<li><b>Bị còng tay thì không được dùng tay</b> để nói chuyện đàm hoặc dùng điện thoại. Làm vậy là phạm luật OOC "PG" (phi thực tế). Lần đầu, cảnh sát xử IC bằng <b class="r">tù liên bang 60 tháng (60 phút)</b>. Tái phạm lần 2 sẽ xử OOC.</li>
+<li><b>Bị còng tay thì không được dùng tay</b> để nói chuyện đàm hoặc dùng điện thoại. Làm vậy là phạm luật OOC "PG" (phi thực tế). Lần đầu xử IC, tái phạm lần 2 sẽ xử OOC.</li>
 <li>Nếu đời thật có việc đột xuất, hãy báo cảnh sát và giải quyết tình huống roleplay thật nhanh.</li>
 <li>Nếu bị crash game, liên hệ cảnh sát qua Discord. Kết nối lại xong, đến đồn trình diện và tiếp tục tình huống.</li>
 <li>Không làm đúng các bước trên thì bị xử lý OOC.</li>
@@ -43,7 +43,7 @@ document.getElementById('lawSrc').innerHTML = `
 
 <section id="upd">
 <h2>Dành cho cảnh sát UPD</h2>
-<p class="lead">Cảnh sát là bộ mặt của luật pháp thành phố, nên chuẩn mực cao hơn người thường. Mức phạt cụ thể xem ở bảng bên dưới.</p>
+<p class="lead">Cảnh sát là bộ mặt của luật pháp thành phố, nên chuẩn mực cao hơn người thường.</p>
 
 <h3>Tác phong</h3>
 <div class="box"><ul>
@@ -124,32 +124,6 @@ document.getElementById('lawSrc').innerHTML = `
 </ul></div>
 </section>
 
-<section id="phat">
-<h2>Bảng mức phạt cho cảnh sát</h2>
-<p class="lead">Tổng hợp từ luật gốc. Dấu "-" nghĩa là không có mức này.</p>
-<div class="tablebox"><table>
-<tr><th>Vi phạm</th><th>Lần 1</th><th>Lần 2</th><th>Lần 3</th></tr>
-<tr><td>Dùng xe/trực thăng đặc chủng cho việc cá nhân</td><td>Cảnh cáo</td><td>Phạt 50.000$</td><td>Đuổi khỏi ngành</td></tr>
-<tr><td>Đậu xe đặc chủng bừa bãi</td><td colspan="3">Phạt 10.000$ mỗi lần bị phát hiện</td></tr>
-<tr><td>Dùng còng/súng điện/baton sai mục đích, khi off-duty hoặc không mặc đồng phục</td><td>Phạt 30.000$</td><td>Tịch thu toàn bộ đồ ngành 1 ngày + phạt 55.555$</td><td>Đuổi khỏi ngành</td></tr>
-<tr><td>Đi làm nghề khác khi on-duty</td><td>Cảnh cáo</td><td>Đuổi khỏi ngành</td><td>-</td></tr>
-<tr><td>Treo lương / AFK khi on-duty</td><td>Phạt bill 20.000$</td><td>Phạt bill 80.000$</td><td>Sa thải</td></tr>
-<tr><td>Chèn xe sai luật</td><td>Nhắc nhở</td><td>Hạ chức</td><td>Sa thải</td></tr>
-<tr><td>Vứt xe cảnh sát lung tung (bị dân phát hiện)</td><td>Phạt 10.000$</td><td>Phạt 25.000$</td><td>Hạ chức</td></tr>
-<tr><td>Bác sĩ tự ý vào khu vực cấm cứu người</td><td>Nhắc nhở + phạt 10.000$</td><td>Ra tòa giải quyết</td><td>-</td></tr>
-</table></div>
-<h3>Vi phạm nặng, xử ngay từ lần đầu</h3>
-<div class="tablebox"><table>
-<tr><th>Vi phạm</th><th>Hình phạt</th></tr>
-<tr><td>Tuồn đồ cảnh sát ra ngoài</td><td>Sa thải + 300 phút tù liên bang</td></tr>
-<tr><td>Lạm quyền, bao che tội phạm</td><td>Sa thải + 60 phút tù liên bang</td></tr>
-<tr><td>Làm nghề bẩn và bị phát hiện</td><td>Sa thải + 200 phút tù liên bang</td></tr>
-<tr><td>Tham gia gia tộc/băng đảng (kể cả liên quan trên "ứng dụng đỉnh cao")</td><td>Sa thải, phạt 50.000$, đưa vào danh sách đen ban ngành</td></tr>
-<tr><td>Cảnh sát bẩn trong cơ quan nhà nước</td><td>Phạt theo luật Nhà Nước, sa thải vĩnh viễn, lưu hồ sơ phạm tội</td></tr>
-<tr><td>Cố tình làm nghề bẩn khi chưa có lệnh cấp trên</td><td>Trục xuất khỏi đồn UPD</td></tr>
-</table></div>
-</section>
-
 <section id="dn">
 <h2>Dành cho doanh nghiệp</h2>
 <p class="lead">Doanh nghiệp và cảnh sát cùng giữ trật tự, nên hai bên cần phối hợp nhịp nhàng.</p>
@@ -161,48 +135,46 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 </template>
 
-<template id="law-phat" data-short="Luật Phạt" data-title="Luật phạt và giao thông" data-intro="Mức phạt cho từng tội danh, quy định về phương tiện và luật sửa xe khi bị truy đuổi. Tra nhanh bằng ba mục bên dưới." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
+<template id="law-phat" data-short="Luật Phạt" data-title="Luật phạt và giao thông" data-intro="Các tội danh, quy định về phương tiện và luật sửa xe khi bị truy đuổi. Tra nhanh bằng ba mục bên dưới." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
 <section id="phat">
 <h2>Luật phạt chung</h2>
-<p class="lead">18 tội danh kèm mức phạt tiền và số tháng lao động. Đọc bảng bên dưới là biết ngay hậu quả.</p>
+<p class="lead">Danh sách tội danh trong thành phố.</p>
 
 <div class="two">
-<div class="box"><h3>Chuộc bãi</h3><p><b>1.000$ mỗi bãi.</b> Chuộc là chuộc hết số bãi bạn đang có. PD không có nghĩa vụ phải cho chuộc.</p></div>
+<div class="box"><h3>Chuộc bãi</h3><p>Chuộc là chuộc hết số bãi bạn đang có. PD không có nghĩa vụ phải cho chuộc.</p></div>
 <div class="box"><h3>Kiểm tra hành chính</h3><p>Gồm CCCD, bằng lái và kiểm tra xe. Cảnh sát được lục soát người khi đối tượng ở trong vùng cấm hoặc bị tình nghi vi phạm pháp luật.</p></div>
 </div>
 
 <h3>Bảng tội danh</h3>
 <div class="tablebox"><table>
-<tr><th>#</th><th>Hành vi</th><th>Phạt tiền</th><th>Lao động</th></tr>
-<tr><td class="n">1</td><td>Gây rối trật tự công cộng, đánh nhau trong toàn tiểu bang/thành phố</td><td class="m">25.000$</td><td class="m">20 tháng</td></tr>
-<tr><td class="n">2</td><td>Cản trở người thi hành công vụ, kể cả trêu đùa hay đẩy ngã cảnh sát, bác sĩ</td><td class="m">20.000$</td><td class="m">40 tháng</td></tr>
-<tr><td class="n">3</td><td>Chặn, ép, tông xe cảnh sát hoặc bác sĩ</td><td class="m">20.000$</td><td class="m">20 tháng</td></tr>
+<tr><th>#</th><th>Hành vi</th></tr>
+<tr><td class="n">1</td><td>Gây rối trật tự công cộng, đánh nhau trong toàn tiểu bang/thành phố</td></tr>
+<tr><td class="n">2</td><td>Cản trở người thi hành công vụ, kể cả trêu đùa hay đẩy ngã cảnh sát, bác sĩ</td></tr>
+<tr><td class="n">3</td><td>Chặn, ép, tông xe cảnh sát hoặc bác sĩ</td></tr>
 <tr><td class="n">4</td><td>Không hợp tác, không tuân theo hiệu lệnh cảnh sát, dùng phương tiện trêu ghẹo cảnh sát
-<small>Ngoài tình huống cướp, cảnh sát được khống chế trực tiếp (còng tay, bắn súng điện) hoặc truy đuổi tính từ còi 3.</small></td><td class="m">20.000$</td><td class="m">30 tháng</td></tr>
-<tr><td class="n">5</td><td>Gây ồn tại khu vực ban ngành (đồn cảnh sát, bệnh viện)</td><td class="m">20.000$</td><td class="m">10 tháng</td></tr>
+<small>Ngoài tình huống cướp, cảnh sát được khống chế trực tiếp (còng tay, bắn súng điện) hoặc truy đuổi tính từ còi 3.</small></td></tr>
+<tr><td class="n">5</td><td>Gây ồn tại khu vực ban ngành (đồn cảnh sát, bệnh viện)</td></tr>
 <tr><td class="n">6a</td><td>Đe dọa, xúc phạm, phỉ báng, lăng mạ; phân biệt chủng tộc, giới tính bằng lời nói hoặc hành động
-<small>Nếu nạn nhân là nhân viên nhà nước (cảnh sát, bác sĩ) thì hình phạt nhân đôi.</small></td><td class="m">100.000$</td><td class="m">50 tháng</td></tr>
+<small>Nếu nạn nhân là nhân viên nhà nước (cảnh sát, bác sĩ) thì hình phạt nhân đôi.</small></td></tr>
 <tr><td class="n">6b</td><td>Vu khống, bịa đặt hoặc lan truyền điều biết rõ là sai sự thật để xúc phạm nhân phẩm, danh dự hoặc gây thiệt hại cho người khác
-<small>Người vu khống phải bồi thường tinh thần cho nạn nhân.</small></td><td class="m">100.000$</td><td class="m">30 tháng</td></tr>
+<small>Người vu khống phải bồi thường tinh thần cho nạn nhân.</small></td></tr>
 <tr><td class="n">7</td><td>Cưỡng đoạt tài sản: đe dọa, dùng vũ lực hoặc thủ đoạn khác để chiếm đoạt tài sản
-<small>Nếu dùng vũ lực gây thương tích, bị phạt thêm tội cố ý gây thương tích.</small></td><td class="m">10.000$</td><td class="m">20 tháng</td></tr>
-<tr><td class="n">8a</td><td>Phá hoại tài sản của người khác, và phải bồi thường thiệt hại</td><td class="m">10.000$</td><td class="m">20 tháng</td></tr>
-<tr><td class="n">8b</td><td>Phá hoại tài sản nhà nước (của cảnh sát, bệnh viện hoặc TTC)</td><td class="m">20.000$</td><td class="m">40 tháng</td></tr>
-<tr><td class="n">8c</td><td>Phá hoại tài sản doanh nghiệp, và phải bồi thường cho doanh nghiệp</td><td class="m">15.000$</td><td class="m">30 tháng</td></tr>
-<tr><td class="n">9</td><td>Phi tang vật chứng, đồ bẩn, kể cả khi về đồn không còn tang vật dù đã bắt hết tội phạm trong tình huống
-<small>Lần 1: 10.000$ và 25 tháng. Lần 2: 15.000$ và 50 tháng. Từ lần 3: hóa đơn nhân đôi cộng lao động.</small></td><td class="m">10.000$ – 15.000$</td><td class="m">25 – 50 tháng</td></tr>
-<tr><td class="n">10</td><td>Không mang giấy tờ tùy thân (CCCD, bằng lái…)</td><td class="m">2.000$</td><td class="m">-</td></tr>
-<tr><td class="n">11</td><td>Đồng phạm: chịu chung mức phạt với người vi phạm</td><td class="m" colspan="2">Bằng người vi phạm chính</td></tr>
-<tr><td class="n">12</td><td>Cướp, trộm, trấn lột đồ dùng đặc biệt dành riêng cho nhân viên nhà nước, chính phủ</td><td class="m">100.000$</td><td class="m">100 tháng</td></tr>
-<tr><td class="n">13</td><td>Đăng tin nghề bẩn (kể cả ẩn ý, viết tắt), buôn bán hàng cấm, chất cấm, vũ khí trên mạng xã hội (toác tơ) và quảng cáo</td><td class="m">10.000$</td><td class="m">30 tháng</td></tr>
-<tr><td class="n">14</td><td>Vượt ngục liên bang, trốn khỏi trại tạm giam của sở cảnh sát (hỗ trợ vượt ngục cũng bị tính)</td><td class="m">20.000$</td><td class="m">20 tháng</td></tr>
+<small>Nếu dùng vũ lực gây thương tích, bị phạt thêm tội cố ý gây thương tích.</small></td></tr>
+<tr><td class="n">8a</td><td>Phá hoại tài sản của người khác, và phải bồi thường thiệt hại</td></tr>
+<tr><td class="n">8b</td><td>Phá hoại tài sản nhà nước (của cảnh sát, bệnh viện hoặc TTC)</td></tr>
+<tr><td class="n">8c</td><td>Phá hoại tài sản doanh nghiệp, và phải bồi thường cho doanh nghiệp</td></tr>
+<tr><td class="n">9</td><td>Phi tang vật chứng, đồ bẩn, kể cả khi về đồn không còn tang vật dù đã bắt hết tội phạm trong tình huống</td></tr>
+<tr><td class="n">10</td><td>Không mang giấy tờ tùy thân (CCCD, bằng lái…)</td></tr>
+<tr><td class="n">11</td><td>Đồng phạm: chịu chung mức phạt với người vi phạm</td></tr>
+<tr><td class="n">12</td><td>Cướp, trộm, trấn lột đồ dùng đặc biệt dành riêng cho nhân viên nhà nước, chính phủ</td></tr>
+<tr><td class="n">13</td><td>Đăng tin nghề bẩn (kể cả ẩn ý, viết tắt), buôn bán hàng cấm, chất cấm, vũ khí trên mạng xã hội (toác tơ) và quảng cáo</td></tr>
+<tr><td class="n">14</td><td>Vượt ngục liên bang, trốn khỏi trại tạm giam của sở cảnh sát (hỗ trợ vượt ngục cũng bị tính)</td></tr>
 <tr><td class="n">15</td><td>Cố ý gây thương tích: bồi thường toàn bộ viện phí cho người bị hại, tịch thu vũ khí gây án (nếu có)
-<small>Tự vệ chính đáng thì không bị xử phạt.</small></td><td class="m">10.000$</td><td class="m">20 tháng</td></tr>
-<tr><td class="n">16</td><td>Cá nhân hoặc tổ chức tham gia đánh nhau
-<small>Mức phạt tùy độ nghiêm trọng của sự việc.</small></td><td class="m">10.000$ – 20.000$</td><td class="m">30 tháng</td></tr>
+<small>Tự vệ chính đáng thì không bị xử phạt.</small></td></tr>
+<tr><td class="n">16</td><td>Cá nhân hoặc tổ chức tham gia đánh nhau</td></tr>
 <tr><td class="n">17</td><td>Giết người: tịch thu toàn bộ vũ khí nếu không có GPVK
-<small>Giết người không lý do thì chuyển hồ sơ sang Tòa Thị Chính giải quyết.</small></td><td class="m">50.000$</td><td class="m">240 tháng</td></tr>
-<tr><td class="n">18</td><td>Giả mạo nhân viên nhà nước (cảnh sát, bác sĩ) khi không thuộc ban ngành</td><td class="m">20.000$</td><td class="m">10 tháng</td></tr>
+<small>Giết người không lý do thì chuyển hồ sơ sang Tòa Thị Chính giải quyết.</small></td></tr>
+<tr><td class="n">18</td><td>Giả mạo nhân viên nhà nước (cảnh sát, bác sĩ) khi không thuộc ban ngành</td></tr>
 </table></div>
 </section>
 
@@ -210,28 +182,26 @@ document.getElementById('lawSrc').innerHTML = `
 <h2>Luật phương tiện</h2>
 <p class="lead">Chạy xe đúng luật là cách rẻ nhất để không phải nộp phạt.</p>
 
-<div class="alert">Giới hạn tốc độ: tối đa <b>100 km/h</b> trong thành phố và <b>140 km/h</b> ngoài thành phố. Vượt tốc độ bị phạt <b class="r">2.000$</b>.</div>
+<div class="alert">Giới hạn tốc độ: tối đa <b>100 km/h</b> trong thành phố và <b>140 km/h</b> ngoài thành phố.</div>
 
 <div class="tablebox"><table>
-<tr><th>#</th><th>Vi phạm</th><th>Mức phạt</th></tr>
-<tr><td class="n">1</td><td>Chuộc xe</td><td class="m">3.000$ mỗi phương tiện</td></tr>
-<tr><td class="n">2</td><td>Dàn hàng ngang, lạng lách đánh võng, đi ngược chiều, đậu xe sai quy định</td><td class="m">5.000$ + giam xe</td></tr>
-<tr><td class="n">3</td><td>Dùng xe không chính chủ</td><td class="m">5.000$ + giam xe</td></tr>
-<tr><td class="n">4</td><td>Chạy ngược chiều
-<small>Nếu gây tai nạn: phạt 7.000$ và bồi thường thiệt hại.</small></td><td class="m">5.000$</td></tr>
-<tr><td class="n">5</td><td>Dùng xe doanh nghiệp, ban ngành hoặc xe thuê sai mục đích (làm nghề sạch khác, làm bẩn, đi chơi, đi cướp…)</td><td class="m">10.000$ + tù 10 phút</td></tr>
-<tr><td class="n">6</td><td>Cướp máy bay, xe bay, xe tank hoặc phương tiện quân đội
-<small>Có thể được chuyển lên TTC để xét trục xuất khỏi thành phố.</small></td><td class="m">Tù 30 phút + 50.000$ (nhân đôi mỗi lần vi phạm)</td></tr>
-<tr><td class="n">7</td><td>Tổ chức hoặc tham gia đua xe trái phép</td><td class="m">10.000$ – 15.000$ mỗi người</td></tr>
-<tr><td class="n">8</td><td>Đậu xe bừa bãi trước bệnh viện, đồn cảnh sát, ban ngành nhà nước hoặc doanh nghiệp tư nhân
-<small>Lần đầu chỉ nhắc nhở. Tái phạm thì thu giữ xe.</small></td><td class="m">5.000$ (khi tái phạm)</td></tr>
-<tr><td class="n">9</td><td>Xe chở quá số người quy định
-<small>Tái phạm nhiều lần thì nhân đôi.</small></td><td class="m">5.000$</td></tr>
-<tr><td class="n">10</td><td>Xe không đăng ký biển số chính chủ</td><td class="m">Nhân đôi hóa đơn theo luật xe không chính chủ</td></tr>
-<tr><td class="n">11</td><td>Xe bị giam giữ (vứt xe lung tung, để xe gần vùng cấm)</td><td class="m">2.500$ + tạm giam xe</td></tr>
-<tr><td class="n">12</td><td>Vượt tốc độ cho phép</td><td class="m">2.000$</td></tr>
-<tr><td class="n">13</td><td>Xe không đủ điều kiện lưu thông (thiếu bộ phận, bể kính, hỏng ngoại thất…)
-<small>Bị kiểm tra hành chính. Chỉ phạt khi cố tình vi phạm.</small></td><td class="m">2.000$</td></tr>
+<tr><th>#</th><th>Vi phạm</th></tr>
+<tr><td class="n">1</td><td>Dàn hàng ngang, lạng lách đánh võng, đi ngược chiều, đậu xe sai quy định</td></tr>
+<tr><td class="n">2</td><td>Dùng xe không chính chủ</td></tr>
+<tr><td class="n">3</td><td>Chạy ngược chiều
+<small>Nếu gây tai nạn phải bồi thường thiệt hại.</small></td></tr>
+<tr><td class="n">4</td><td>Dùng xe doanh nghiệp, ban ngành hoặc xe thuê sai mục đích (làm nghề sạch khác, làm bẩn, đi chơi, đi cướp…)</td></tr>
+<tr><td class="n">5</td><td>Cướp máy bay, xe bay, xe tank hoặc phương tiện quân đội
+<small>Có thể được chuyển lên TTC để xét trục xuất khỏi thành phố.</small></td></tr>
+<tr><td class="n">6</td><td>Tổ chức hoặc tham gia đua xe trái phép</td></tr>
+<tr><td class="n">7</td><td>Đậu xe bừa bãi trước bệnh viện, đồn cảnh sát, ban ngành nhà nước hoặc doanh nghiệp tư nhân
+<small>Lần đầu chỉ nhắc nhở. Tái phạm thì thu giữ xe.</small></td></tr>
+<tr><td class="n">8</td><td>Xe chở quá số người quy định</td></tr>
+<tr><td class="n">9</td><td>Xe không đăng ký biển số chính chủ</td></tr>
+<tr><td class="n">10</td><td>Xe bị giam giữ (vứt xe lung tung, để xe gần vùng cấm)</td></tr>
+<tr><td class="n">11</td><td>Vượt tốc độ cho phép</td></tr>
+<tr><td class="n">12</td><td>Xe không đủ điều kiện lưu thông (thiếu bộ phận, bể kính, hỏng ngoại thất…)
+<small>Bị kiểm tra hành chính.</small></td></tr>
 </table></div>
 </section>
 
@@ -340,18 +310,15 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 
 <section id="tinhhuong">
-<h2>5 tình huống và mức phạt</h2>
-<p class="lead">Chọn đúng tình huống của vụ việc để biết hình phạt. Ở mọi tình huống, đồ bẩn đều bị tịch thu toàn bộ.</p>
+<h2>5 tình huống</h2>
+<p class="lead">Chọn đúng tình huống của vụ việc. Ở mọi tình huống, đồ bẩn đều bị tịch thu toàn bộ.</p>
 <div class="tablebox"><table>
-<tr><th>#</th><th>Tình huống</th><th>Cảnh sát truy bắt bằng</th><th>Mức phạt</th></tr>
-<tr><td class="n">1</td><td><b>Chạy chậm, dừng xe, nhảy xuống nước</b></td><td>Đồ lặn nhảy theo, thuyền</td><td>Tịch thu toàn bộ đồ bẩn + phạt theo Luật Trộm Cướp
-<small>Không phạt thêm tội cố tình lao xuống nước.</small></td></tr>
-<tr><td class="n">2</td><td><b>Chạy nhanh, không va chạm, lao thẳng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền hoặc AIR1</td><td class="m">Tịch thu toàn bộ đồ bẩn + 25.000$ + 20 tháng
-<small>Không phạt thêm.</small></td></tr>
-<tr><td class="n">3</td><td><b>Chạy nhanh, cố tình bay, va chạm vật thể hoặc xe cảnh sát để văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền hoặc AIR1</td><td class="m">Tịch thu toàn bộ đồ bẩn + 25.000$ + 20 tháng
-<small>Không phạt thêm.</small></td></tr>
-<tr><td class="n">4</td><td><b>Chạy nhanh, va chạm vật thể, theo quán tính văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền</td><td class="m">Tịch thu toàn bộ đồ bẩn + phạt theo Luật Trộm Cướp + 10.000$ + 5 tháng</td></tr>
-<tr><td class="n">5</td><td><b>Chạy nhanh, va chạm xe cảnh sát, theo quán tính văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền</td><td>Tịch thu toàn bộ đồ bẩn + phạt theo Luật Trộm Cướp</td></tr>
+<tr><th>#</th><th>Tình huống</th><th>Cảnh sát truy bắt bằng</th></tr>
+<tr><td class="n">1</td><td><b>Chạy chậm, dừng xe, nhảy xuống nước</b></td><td>Đồ lặn nhảy theo, thuyền</td></tr>
+<tr><td class="n">2</td><td><b>Chạy nhanh, không va chạm, lao thẳng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền hoặc AIR1</td></tr>
+<tr><td class="n">3</td><td><b>Chạy nhanh, cố tình bay, va chạm vật thể hoặc xe cảnh sát để văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền hoặc AIR1</td></tr>
+<tr><td class="n">4</td><td><b>Chạy nhanh, va chạm vật thể, theo quán tính văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền</td></tr>
+<tr><td class="n">5</td><td><b>Chạy nhanh, va chạm xe cảnh sát, theo quán tính văng xuống nước</b></td><td>Lao xuống bắt hoặc đồ lặn nhảy theo, thuyền</td></tr>
 </table></div>
 </section>
 
@@ -366,7 +333,7 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 </template>
 
-<template id="law-cuop" data-short="Luật Cướp" data-title="Luật Cướp" data-intro="Khung luật chung cho mọi vụ cướp, cộng với bảng quy định và mức phạt riêng cho từng loại. Trang này hiện có sẵn loại cướp trụ điện, bốt điện thoại và xi măng." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
+<template id="law-cuop" data-short="Luật Cướp" data-title="Luật Cướp" data-intro="Khung luật chung cho mọi vụ cướp, cộng với quy định riêng cho từng cấp độ và từng loại cướp." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
 <section id="chung">
 <h2>Quy định chung</h2>
 <p class="lead">Áp dụng cho mọi vụ cướp, trừ khi luật riêng của loại cướp đó ghi khác.</p>
@@ -377,7 +344,7 @@ document.getElementById('lawSrc').innerHTML = `
 </ul></div>
 <div class="box"><h3>Phương tiện</h3>
 <p><b>Được dùng:</b> xe 4 chỗ, xe 2 chỗ, xe backup, xe quá khổ.</p>
-<p><b class="r">Không được dùng:</b> xe chưa thông hành, xe đồ chơi, xe 2 bánh. Vi phạm bị phạt <b class="r">x3</b> mức phạt.</p></div>
+<p><b class="r">Không được dùng:</b> xe chưa thông hành, xe đồ chơi, xe 2 bánh.</p></div>
 </div>
 
 <div class="alert">Dùng phương tiện không được phép tham gia vụ cướp: cảnh sát được <b class="r">bật còi 3 ngay lập tức</b>.</div>
@@ -404,6 +371,10 @@ document.getElementById('lawSrc').innerHTML = `
 <!-- Thêm loại cướp: sao chép nguyên một khối <details class="heist">…</details>, đổi tên và dán nội dung vào <div class="hb">. Mẫu điền luật: xem khối "Trộm trụ điện" (bảng <div class="spec">). -->
 <div class="lvl" data-lv="1">
 <div class="lvl-h"><b>Level 1</b><span>4 loại</span></div>
+<div class="box lvl-r"><ul>
+<li>Quy định tối đa các thành viên tham gia là <b>4 người</b>.</li>
+<li>Số lượng phương tiện tham gia vào vụ cướp là <b>1 xe</b> (xe 4 chỗ và xe máy đều được).</li>
+</ul></div>
 <details class="heist"><summary><span class="hn">Trộm đồng hồ</span><span class="hx"></span></summary><div class="hb">
 <p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
@@ -412,7 +383,7 @@ document.getElementById('lawSrc').innerHTML = `
 <div><span>Người tối đa</span><p><b>4 người mỗi xe</b><small>Vượt số người tối đa thì hủy tình huống.</small></p></div>
 <div><span>Người được ra tay</span><p>Đi 2 người: <b>1 người</b> ra tay. Đi 3 hoặc 4 người: <b>2 người</b> ra tay.<small>Tài xế luôn ngồi trên xe.</small></p></div>
 <div><span>Cảnh sát tối đa</span><p><b>3 xe cảnh sát</b> mỗi xe vi phạm<small>Không giới hạn loại xe cảnh sát.</small></p></div>
-<div><span>Mức phạt</span><p><b class="r">3.000$ + tù 10 tháng</b><small>Tính cả đồng phạm. Tịch thu phương tiện tham gia và áp dụng luật tịch thu.</small></p></div>
+<div><span>Phương tiện</span><p>Tịch thu phương tiện tham gia và áp dụng luật tịch thu.<small>Tính cả đồng phạm.</small></p></div>
 </div>
 </div></details>
 <details class="heist"><summary><span class="hn">Trộm mộ</span><span class="hx"></span></summary><div class="hb">
@@ -424,6 +395,9 @@ document.getElementById('lawSrc').innerHTML = `
 </div>
 <div class="lvl" data-lv="2">
 <div class="lvl-h"><b>Level 2</b><span>2 loại</span></div>
+<div class="box lvl-r"><ul>
+<li>Áp dụng <b>Luật Vùng Đỏ</b>.</li>
+</ul></div>
 <details class="heist"><summary><span class="hn">Rã bánh xe</span><span class="hx"></span></summary><div class="hb">
 <p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
@@ -433,6 +407,11 @@ document.getElementById('lawSrc').innerHTML = `
 </div>
 <div class="lvl" data-lv="3">
 <div class="lvl-h"><b>Level 3</b><span>3 loại</span></div>
+<div class="box lvl-r"><ul>
+<li>Quy định tối đa các thành viên tham gia là <b>4 người</b>.</li>
+<li>Số lượng phương tiện tham gia vào vụ cướp là <b>1 xe</b>, <b class="r">cấm xe máy</b>.</li>
+<li>Số lượng con tin là <b>1</b>.</li>
+</ul></div>
 <details class="heist"><summary><span class="hn">Trộm nhà</span><span class="hx"></span></summary><div class="hb">
 <p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
@@ -564,12 +543,11 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 
 <section id="phat">
-<h2>Mức phạt</h2>
-<p class="lead">Người tham gia bị tịch thu đồ bẩn và vũ khí, sau đó áp dụng mức phạt bên dưới.</p>
+<h2>Xử lý vi phạm</h2>
+<p class="lead">Người tham gia bị tịch thu đồ bẩn và vũ khí, sau đó xử lý như bên dưới.</p>
 <div class="tablebox"><table>
-<tr><th>Tình huống</th><th>Hình phạt</th></tr>
-<tr><td>Tấn công PD trong tình huống roleplay, phó bản nhỏ</td><td class="m">Tịch thu đồ bẩn + vũ khí, 4.000$ + tù 15 tháng
-<small>Cộng riêng vào hóa đơn. Mức này thay cho các tội cản trở công vụ ở cùng hành vi.</small></td></tr>
+<tr><th>Tình huống</th><th>Cách xử lý</th></tr>
+<tr><td>Tấn công PD trong tình huống roleplay, phó bản nhỏ</td><td class="m">Tịch thu đồ bẩn + vũ khí</td></tr>
 <tr><td>Không đeo mặt nạ</td><td>Cảnh sát xác định danh tính và truy nã ngay</td></tr>
 <tr><td>Ở lại khu vực quá 30 giây sau khi kết thúc</td><td>Bị áp vào bắt, bật còi theo tình huống</td></tr>
 <tr><td>Đổi đồ, mặt nạ, xe khi chưa đủ 15 phút (vùng đỏ)</td><td>Còi 3 và bắt giữ</td></tr>
@@ -614,7 +592,7 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Dùng emote để né còng, né khám hoặc thoát khỏi cảnh sát.</li>
 </ul></div>
 </div>
-<div class="alert">Mức phạt khi cảnh sát bắt tại trận: <b class="r">tịch thu toàn bộ đồ bẩn + 100.000$ + 100 tháng</b>. Không phạt thêm.</div>
+<div class="alert">Cảnh sát bắt tại trận: <b class="r">tịch thu toàn bộ đồ bẩn</b>.</div>
 </section>
 
 <section id="bang">
@@ -646,7 +624,7 @@ document.getElementById('lawSrc').innerHTML = `
 <section id="xuly">
 <h2>Cảnh sát xử lý thế nào?</h2>
 <div class="box"><ul>
-<li><b>Bắt tại trận:</b> cảnh sát tận mắt thấy bạn dùng emote vi phạm thì được tịch thu toàn bộ đồ bẩn và phạt theo mức trên.</li>
+<li><b>Bắt tại trận:</b> cảnh sát tận mắt thấy bạn dùng emote vi phạm thì được tịch thu toàn bộ đồ bẩn.</li>
 <li><b>Chỉ nghi vấn:</b> cảnh sát chưa chắc thì được nhờ TTC can thiệp kiểm tra, không tự quyết.</li>
 <li><b>Sau khi TTC xác định vi phạm:</b> TTC toàn quyền xử lý theo luật thành phố.</li>
 <li>Nếu bạn bị nghi oan, hãy đưa video hoặc hình ảnh làm bằng chứng cho TTC hoặc cảnh sát có thẩm quyền.</li>

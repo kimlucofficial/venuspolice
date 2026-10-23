@@ -25,25 +25,24 @@
   $('people').innerHTML = DATA.people.map(function(p){
     return '<figure class="person panel'+(p.lead?' lead':'')+'">'+(p.lead?corners:'')+ph(p.img)+'<figcaption data-i="'+String(DATA.people.indexOf(p)+1).padStart(2,'0')+'"><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
   }).join('');
-  /* Thành viên theo role Discord (tự lấy avatar) */
+  /* Ban lãnh đạo: tự lấy avatar + tên từ Discord */
   (function(){
-    var box = $('roster'), roles = DATA.discordRoles || [];
-    if (!box || !roles.length || location.protocol === 'file:') return;
-    var ini2 = function(n){ var w = String(n).trim().split(/\s+/); return (w.length > 1 ? w[0][0] + w[w.length-1][0] : String(n).slice(0,2)).toUpperCase(); };
-    roles.forEach(function(R){
-      var g = document.createElement('div'); g.className = 'roster'; g.hidden = true; box.appendChild(g);
-      fetch('/api/discord-role?role=' + encodeURIComponent(R.id)).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
-        if (!d || !d.members || !d.members.length) return;
-        var title = R.title || d.role.name;
-        g.innerHTML = '<div class="roster-h"><b>' + esc(title) + '</b><span>' + d.members.length + ' thành viên</span></div>' +
-          '<div class="roster-g">' + d.members.map(function(m, i){
-            return '<figure class="rm" style="transition-delay:' + Math.min(i * 50, 600) + 'ms"><div class="ph"><span class="rm-i">' + esc(ini2(m.name)) + '</span><img src="' + esc(m.avatar) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>' +
-              '<figcaption><div class="role">' + esc(title) + '</div><div class="who" title="' + esc(m.name) + '">' + esc(m.name) + '</div></figcaption></figure>';
-          }).join('') + '</div>';
-        g.hidden = false;
-        requestAnimationFrame(function(){ requestAnimationFrame(function(){ g.classList.add('in'); }); });
-      }).catch(function(){});
-    });
+    var list = DATA.people.filter(function(p){ return p.discord; });
+    if (!list.length || location.protocol === 'file:') return;
+    fetch('/api/discord-users?ids=' + list.map(function(p){ return p.discord; }).join(',')).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      if (!d || !d.users) return;
+      var cards = $('people').querySelectorAll('.person');
+      DATA.people.forEach(function(p, i){
+        var u = p.discord && d.users[p.discord], c = cards[i]; if (!u || !c) return;
+        if (!p.img){
+          var box = c.querySelector('.ph'), im = new Image();
+          im.alt = ''; im.referrerPolicy = 'no-referrer';
+          im.onload = function(){ box.innerHTML = ''; box.appendChild(im); };
+          im.src = u.avatar;
+        }
+        if (!p.lockName && u.name) c.querySelector('.who').textContent = u.name;
+      });
+    }).catch(function(){});
   })();
   $('forces').innerHTML = DATA.forces.map(function(f){
     return '<div class="force panel">'+corners+ph(f.img,'emb')+'<h3>'+esc(f.code)+'</h3><div class="full">'+esc(f.name)+'</div><div class="cs">'+esc(f.code)+' '+esc(f.range)+'</div></div>';
@@ -162,8 +161,11 @@
   var LB = { p: 'week', u: 'ALL', k: 'score', q: '' }, P = DATA.points;
   var PREV = { week: 'month', month: 'all', all: 'all' };
   function rows(period){
-    return DATA.officers.map(function(o){ var v = o[period]; return { o: o, hours: v[0], arrests: v[1], calls: v[2], score: v[0]*P.hours + v[1]*P.arrests + v[2]*P.calls }; });
+    return DATA.officers.map(function(o){ var v = o[period] || [0, 0, 0]; return { o: o, hours: v[0], arrests: v[1], calls: v[2], score: v[0]*P.hours + v[1]*P.arrests + v[2]*P.calls }; });
   }
+  function key(o){ return o.id || o.cs; }
+  function sub(o){ return esc(o.cs) + (o.rank ? ' · ' + esc(o.rank) : ''); }
+  function face(o){ return esc(ini(o.name)) + (o.avatar ? '<img src="'+esc(o.avatar)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">' : ''); }
   function ini(n){ var w = n.trim().split(/\s+/); return (w.length > 1 ? w[0][0] + w[w.length-1][0] : n.slice(0,2)).toUpperCase(); }
   function medal(n){
     var c = n === 1 ? '#d6c294' : n === 2 ? '#c9cfdb' : '#b98b6a';
@@ -179,8 +181,8 @@
   function animateLB(prevPos, prevVal){
     if (!lbShown) return;
     var key = LB.p + LB.u, podAnim = key !== lastKey; lastKey = key;
-    if (!podAnim) document.querySelectorAll('#podium .pod').forEach(function(p){ p.classList.add('go'); p.style.animation = 'none'; p.style.opacity = 1; p.style.transform = 'none'; p.querySelectorAll('.v').forEach(function(v){ v.textContent = fmt(+v.dataset.n); }); });
-    if (podAnim) document.querySelectorAll('#podium .pod').forEach(function(p){ p.classList.remove('go'); void p.offsetWidth; p.classList.add('go'); });
+    if (!podAnim) document.querySelectorAll('#podium .pd').forEach(function(p){ p.classList.add('go', 'still'); p.style.animation = 'none'; p.style.opacity = 1; p.style.transform = 'none'; p.querySelectorAll('.v').forEach(function(v){ v.textContent = fmt(+v.dataset.n); }); });
+    if (podAnim) document.querySelectorAll('#podium .pd').forEach(function(p){ p.classList.remove('go'); void p.offsetWidth; p.classList.add('go'); });
     document.querySelectorAll(podAnim ? '#podium .v, #units .v' : '#units .v').forEach(function(v){ v.dataset.from = 0; countUp(v, podAnim ? 1400 : 600); });
     document.querySelectorAll('#lbBody tr[data-cs]').forEach(function(tr, i){
       var cs = tr.dataset.cs, v = tr.querySelector('.v');
@@ -208,22 +210,29 @@
     var all = rows(LB.p).filter(function(r){ return LB.u === 'ALL' || r.o.unit === LB.u; });
     var byScore = all.slice().sort(function(a,b){ return b.score - a.score; });
     byScore.forEach(function(r,i){ r.pos = i + 1; });
-    var prevOrder = rows(PREV[LB.p]).filter(function(r){ return LB.u === 'ALL' || r.o.unit === LB.u; }).sort(function(a,b){ return b.score - a.score; }).map(function(r){ return r.o.cs; });
-    byScore.forEach(function(r){ var pi = prevOrder.indexOf(r.o.cs); r.delta = (LB.p === 'all' || pi < 0) ? 0 : (pi + 1) - r.pos; });
+    var prevOrder = rows(PREV[LB.p]).filter(function(r){ return LB.u === 'ALL' || r.o.unit === LB.u; }).sort(function(a,b){ return b.score - a.score; }).map(function(r){ return key(r.o); });
+    byScore.forEach(function(r){ var pi = prevOrder.indexOf(key(r.o)); r.delta = (LB.p === 'all' || pi < 0) ? 0 : (pi + 1) - r.pos; });
     var top = byScore.slice(0,3), order = [top[1], top[0], top[2]];
+    var crown = '<svg class="pd-crown" viewBox="0 0 40 20" fill="none"><path d="M3 17h34M5 17L3 5l9 6 8-9 8 9 9-6-2 12" stroke="url(#pdg)" stroke-width="1.4" stroke-linejoin="round"/><defs><linearGradient id="pdg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c1"/><stop offset=".5" stop-color="#e3b65a"/><stop offset="1" stop-color="#8c6422"/></linearGradient></defs></svg>';
+    var rkName = { 1: 'Hạng nhất', 2: 'Hạng nhì', 3: 'Hạng ba' };
     $('podium').innerHTML = order.map(function(r){
-      if (!r) return '<div></div>';
-      return '<div class="pod panel p'+r.pos+'" data-cs="'+esc(r.o.cs)+'">'+(r.pos===1?corners+'<svg class="crown" viewBox="0 0 34 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 14h30M4 14L2 3l8 6 7-8 7 8 8-6-2 11"/></svg>':'')+medal(r.pos)+'<div class="av">'+esc(ini(r.o.name))+'</div><div class="nm">'+esc(r.o.name)+'</div><div class="sub">'+esc(r.o.cs)+' · '+esc(r.o.rank)+'</div>'+
-        '<div class="pts"><b><span class="v" data-n="'+r.score+'">0</span></b><span>Điểm</span></div><i class="ring"></i><div class="mini"><span>'+r.hours+' <em>giờ</em></span><span>'+r.arrests+' <em>bắt giữ</em></span><span>'+r.calls+' <em>cuộc gọi</em></span></div></div>';
+      if (!r) return '<div class="pd pd-empty"></div>';
+      return '<div class="pd pd'+r.pos+'" data-cs="'+esc(key(r.o))+'">'+
+        '<div class="pd-who">'+(r.pos===1?crown:'')+'<div class="pd-av"><i>'+face(r.o)+'</i></div><div class="pd-nm" title="'+esc(r.o.name)+'">'+esc(r.o.name)+'</div><div class="pd-cs">'+sub(r.o)+'</div></div>'+
+        '<div class="pd-blk"><div class="pd-top"></div><div class="pd-face">'+
+          '<div class="pd-lb">'+rkName[r.pos]+'</div><div class="pd-rk">'+r.pos+'</div>'+
+          '<div class="pd-pt"><span class="v" data-n="'+r.score+'">0</span><small>Điểm</small></div>'+
+          '<div class="pd-mini"><span><b>'+r.hours+'</b> giờ</span><span><b>'+r.arrests+'</b> bắt giữ</span><span><b>'+r.calls+'</b> cuộc gọi</span></div>'+
+        '</div></div></div>';
     }).join('');
-    var q = norm(LB.q), list = byScore.filter(function(r){ return !q || norm(r.o.name + ' ' + r.o.cs + ' ' + r.o.rank).indexOf(q) > -1; });
+    var q = norm(LB.q), list = byScore.filter(function(r){ return !q || norm(r.o.name + ' ' + r.o.cs + ' ' + (r.o.rank || '') + ' ' + r.o.unit).indexOf(q) > -1; });
     list.sort(function(a,b){ return b[LB.k] - a[LB.k] || a.pos - b.pos; });
     var max = Math.max.apply(null, byScore.map(function(r){ return r.score; }).concat([1]));
     $('lbCount').textContent = list.length + ' sĩ quan';
     $('lbBody').innerHTML = list.length ? list.map(function(r){
       var d = r.delta > 0 ? '<small class="up">▲ '+r.delta+'</small>' : r.delta < 0 ? '<small class="dn">▼ '+(-r.delta)+'</small>' : '<small class="eq">—</small>';
-      return '<tr data-cs="'+esc(r.o.cs)+'" class="'+(r.pos<=3?'t'+r.pos:'')+'"><td class="rk" style="'+(r.pos<=3?'color:var(--gold2)':'')+'">'+String(r.pos).padStart(2,'0')+d+'</td>'+
-        '<td class="who"><div class="wf"><span class="mav">'+esc(ini(r.o.name))+'</span><div><b>'+esc(r.o.name)+'</b><small>'+esc(r.o.cs)+' · '+esc(r.o.rank)+'</small></div></div></td>'+
+      return '<tr data-cs="'+esc(key(r.o))+'" class="'+(r.pos<=3?'t'+r.pos:'')+'"><td class="rk" style="'+(r.pos<=3?'color:var(--gold2)':'')+'">'+String(r.pos).padStart(2,'0')+d+'</td>'+
+        '<td class="who"><div class="wf"><span class="mav">'+face(r.o)+'</span><div><b>'+esc(r.o.name)+'</b><small>'+sub(r.o)+'</small></div></div></td>'+
         '<td class="hide-m"><span class="unit '+esc(r.o.unit)+'">'+esc(r.o.unit)+'</span></td>'+
         '<td class="hide-m'+(LB.k==='hours'?' sk':'')+'">'+r.hours+'</td><td class="hide-m'+(LB.k==='arrests'?' sk':'')+'">'+r.arrests+'</td><td class="hide-m'+(LB.k==='calls'?' sk':'')+'">'+r.calls+'</td>'+
         '<td class="pt"><span class="v" data-n="'+r.score+'">'+fmt(r.score)+'</span><span class="bar"><i data-w="'+(r.score/max*100).toFixed(1)+'"></i></span></td></tr>';
@@ -241,6 +250,15 @@
   render();
   var lbIO = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !lbShown){ lbShown = true; firstRows = true; render(); lbIO.disconnect(); } }); }, { threshold: .15 });
   lbIO.observe($('podium'));
+
+  /* Danh sách sĩ quan tự lấy từ Discord (role cảnh sát + name tag) */
+  if (location.protocol !== 'file:') fetch('/api/discord-officers').then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+    if (!d || !d.officers || !d.officers.length) return;
+    var S = DATA.stats || {};
+    DATA.officers = d.officers.map(function(o){ var st = S[o.id] || {}; return { id: o.id, name: o.name, cs: o.cs, unit: o.unit, avatar: o.avatar, rank: st.rank || '', week: st.week, month: st.month, all: st.all }; });
+    var note = document.querySelector('.lb-note'); if (note) note.hidden = true;
+    lastKey = ''; firstRows = true; render();
+  }).catch(function(){});
 
   /* Hiện dần khi cuộn tới */
   document.querySelectorAll('.head, .person, .force, .cadet, .tier, .lib, .lb-bar, .lb-grid, .f-top').forEach(function(el){ el.classList.add('rv'); });
