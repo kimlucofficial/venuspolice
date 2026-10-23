@@ -25,6 +25,26 @@
   $('people').innerHTML = DATA.people.map(function(p){
     return '<figure class="person panel'+(p.lead?' lead':'')+'">'+(p.lead?corners:'')+ph(p.img)+'<figcaption data-i="'+String(DATA.people.indexOf(p)+1).padStart(2,'0')+'"><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
   }).join('');
+  /* Thành viên theo role Discord (tự lấy avatar) */
+  (function(){
+    var box = $('roster'), roles = DATA.discordRoles || [];
+    if (!box || !roles.length || location.protocol === 'file:') return;
+    var ini2 = function(n){ var w = String(n).trim().split(/\s+/); return (w.length > 1 ? w[0][0] + w[w.length-1][0] : String(n).slice(0,2)).toUpperCase(); };
+    roles.forEach(function(R){
+      var g = document.createElement('div'); g.className = 'roster'; g.hidden = true; box.appendChild(g);
+      fetch('/api/discord-role?role=' + encodeURIComponent(R.id)).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+        if (!d || !d.members || !d.members.length) return;
+        var title = R.title || d.role.name;
+        g.innerHTML = '<div class="roster-h"><b>' + esc(title) + '</b><span>' + d.members.length + ' thành viên</span></div>' +
+          '<div class="roster-g">' + d.members.map(function(m, i){
+            return '<figure class="rm" style="transition-delay:' + Math.min(i * 50, 600) + 'ms"><div class="ph"><span class="rm-i">' + esc(ini2(m.name)) + '</span><img src="' + esc(m.avatar) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></div>' +
+              '<figcaption><div class="role">' + esc(title) + '</div><div class="who" title="' + esc(m.name) + '">' + esc(m.name) + '</div></figcaption></figure>';
+          }).join('') + '</div>';
+        g.hidden = false;
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ g.classList.add('in'); }); });
+      }).catch(function(){});
+    });
+  })();
   $('forces').innerHTML = DATA.forces.map(function(f){
     return '<div class="force panel">'+corners+ph(f.img,'emb')+'<h3>'+esc(f.code)+'</h3><div class="full">'+esc(f.name)+'</div><div class="cs">'+esc(f.code)+' '+esc(f.range)+'</div></div>';
   }).join('');

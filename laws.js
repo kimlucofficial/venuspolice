@@ -258,6 +258,72 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 </template>
 
+<template id="law-truyduoi" data-short="Truy Đuổi" data-title="Luật Truy Đuổi" data-intro="Áp dụng cho mọi tình huống truy đuổi: mức còi, quyền hạn của cảnh sát với xe hơi, xe máy, Air-One và truy dấu sau khi đối tượng trốn thoát." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
+<section id="chung">
+<h2>Nguyên tắc chung</h2>
+<p class="lead">Áp dụng cho mọi tình huống truy đuổi.</p>
+<div class="box"><ul>
+<li>Một số tình huống truy đuổi bị 2 thế giới, sẽ xảy ra tình trạng va chạm mạnh giữa 2 bên. Mong người dân thông cảm!</li>
+<li>Khi đối tượng lao xuống nước, Cảnh Sát có quyền <b>còng tay trực tiếp</b>, tránh dùng súng điện có thể dẫn đến đối tượng bị chết ngạt.</li>
+<li>Sẽ có một số tình huống rớt map thì yêu cầu người dân phải <b>liên hệ với Cảnh Sát</b> để tiếp tục tình huống. Nếu không thì sẽ chuyển hồ sơ sang <b class="r">TTC</b> giải quyết.</li>
+</ul></div>
+</section>
+
+<section id="xehoi">
+<h2>Xe hơi</h2>
+<div class="box"><ul>
+<li>Khi Cảnh Sát bắt đầu chèn xe, nếu xe cướp đang đi tốc độ cao và xe Cảnh Sát tiến hành chèn xe sẽ xảy ra tình trạng va chạm mạnh giữa 2 bên thì sẽ <b>không tính là Cảnh Sát cố tình tông</b>.</li>
+<li>Một vài tình huống khác cũng sẽ không tính vào trường hợp Cảnh Sát cố tình tông xe cướp, ví dụ như: bay xe, xe cướp thắng gấp…</li>
+<li>Khi tội phạm bước xuống xe sẽ có <b>10 giây</b> để chạy. Sau 10 giây, Cảnh Sát được phép sử dụng súng điện để khống chế.</li>
+<li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
+<li>Ngoài ra khi đang truy dấu, nếu Cảnh Sát khác thấy phương tiện hoặc người dân có nhân dạng giống đối tượng đang truy dấu thì Cảnh Sát đó được phép bật còi truy đuổi theo để giữ dấu, đến khi các Cảnh Sát trong tình huống đến và tiếp tục tình huống.</li>
+</ul></div>
+<div class="tablebox"><table>
+<tr><th>Mức còi</th><th>Cảnh Sát được làm gì</th></tr>
+<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>. Nếu không chấp hành sẽ chuyển còi 2.</td></tr>
+<tr><td class="m">Còi 2</td><td>Được chặn đường, PIT xe đối tượng (tốc độ <b>dưới 80 km/h</b>) trong <b>5 phút</b>. Nếu xe đối tượng bị kẹt, có quyền chặn đường ra.
+<small>PIT: dùng đầu và đuôi xe để chèn vào góc xe đối tượng, dùng thân xe và góc đèn xe để ép vào đầu và thân xe đối tượng.</small></td></tr>
+<tr><td class="m">Còi 3</td><td>Tiến hành chặn đường, chèn, ép và PIT xe đối tượng <b class="r">không giới hạn tốc độ</b>.</td></tr>
+</table></div>
+</section>
+
+<section id="xemay">
+<h2>Xe máy</h2>
+<div class="alert">Xe máy là phương tiện dễ bị ngã khi va chạm trong những tình huống truy đuổi, do đó sẽ <b>không được tính là Car Ramming</b>.</div>
+<div class="tablebox"><table>
+<tr><th>Mức còi</th><th>Thời gian đổi còi và quyền hạn</th></tr>
+<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>.
+<small>Nếu đối tượng có dấu hiệu đá thì bên phía Cảnh Sát sẽ chuyển sang còi 3.</small></td></tr>
+<tr><td class="m">Còi 2</td><td>Được phép gây cản trở phương tiện của đối tượng và sử dụng baton (tốc độ <b>dưới 80 km/h</b>).</td></tr>
+<tr><td class="m">Còi 3</td><td>Tiến hành sử dụng súng điện vào người đối tượng để vô hiệu hóa khả năng di chuyển, <b class="r">không giới hạn tốc độ</b>.
+<small>Áp dụng cho: truy đuổi sau 10 phút, vi phạm luật truy đuổi (Back-Up, Sửa Xe…), những tình huống không nằm trong phó bản…</small></td></tr>
+</table></div>
+</section>
+
+<section id="airone">
+<h2>Air-One</h2>
+<div class="box"><ul>
+<li>Chỉ được sử dụng Air-One trong các phó bản cho phép, truy đuổi hoặc truy dấu tội phạm vi phạm <b>Luật Truy Đuổi Xuống Nước</b>, tấn công PD.</li>
+<li>Air-One được phép sử dụng các tính năng được cung cấp sẵn để sẵn sàng hỗ trợ truy đuổi.</li>
+</ul></div>
+</section>
+
+<section id="truydau">
+<h2>Truy dấu</h2>
+<p class="lead">Áp dụng cho các tình huống vi phạm luật.</p>
+<div class="alert">Thường sẽ áp dụng cho các vi phạm trong <b>Luật Phạt Chung</b> và <b>Luật Phương Tiện</b>.</div>
+<div class="box"><ul>
+<li>Nếu trốn thoát thành công thì sau <b>10 phút</b> mới có thể thay đổi trang phục, mặt nạ, phương tiện. Trong vòng 10 phút đó, Cảnh Sát phải bật đèn đi tìm. Nếu phát hiện người dân nào có các đặc điểm như trang phục, mặt nạ, phương tiện sẽ tiến hành kiểm tra, mời về đồn làm việc.</li>
+<li>Khi tội phạm bước xuống xe sẽ có <b>10 giây</b> để chạy. Sau 10 giây, Cảnh Sát được phép sử dụng súng điện để khống chế.</li>
+<li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
+</ul></div>
+<div class="two">
+<div class="box"><h3>Xe hơi (4 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe hơi.</p></div>
+<div class="box"><h3>Xe máy (2 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe máy.</p></div>
+</div>
+</section>
+</template>
+
 <template id="law-nuoc" data-short="Xuống Nước" data-title="Luật Truy Đuổi Xuống Nước" data-intro="Áp dụng khi đối tượng nhảy hoặc lao xuống nước trong lúc bị truy đuổi, ở bất kỳ khu vực nào, và với tất cả thành viên tham gia kể cả đồng phạm." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
 <section id="chung">
 <h2>Nguyên tắc chung</h2>
@@ -393,62 +459,6 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Trong 10 phút đó, bật đèn đi tìm đối tượng.</li>
 <li>Thấy người dân có trang phục, mặt nạ hoặc phương tiện khớp đặc điểm thì kiểm tra và mời về đồn làm việc.</li>
 </ul></div>
-</div>
-</section>
-
-<section id="truyduoi">
-<h2>Luật Truy Đuổi</h2>
-<p class="lead">Áp dụng cho mọi tình huống truy đuổi.</p>
-
-<div class="box"><ul>
-<li>Một số tình huống truy đuổi bị 2 thế giới, sẽ xảy ra tình trạng va chạm mạnh giữa 2 bên. Mong người dân thông cảm!</li>
-<li>Khi đối tượng lao xuống nước, Cảnh Sát có quyền <b>còng tay trực tiếp</b>, tránh dùng súng điện có thể dẫn đến đối tượng bị chết ngạt.</li>
-<li>Sẽ có một số tình huống rớt map thì yêu cầu người dân phải <b>liên hệ với Cảnh Sát</b> để tiếp tục tình huống. Nếu không thì sẽ chuyển hồ sơ sang <b class="r">TTC</b> giải quyết.</li>
-</ul></div>
-
-<h3>Xe hơi</h3>
-<div class="box"><ul>
-<li>Khi Cảnh Sát bắt đầu chèn xe, nếu xe cướp đang đi tốc độ cao và xe Cảnh Sát tiến hành chèn xe sẽ xảy ra tình trạng va chạm mạnh giữa 2 bên thì sẽ <b>không tính là Cảnh Sát cố tình tông</b>.</li>
-<li>Một vài tình huống khác cũng sẽ không tính vào trường hợp Cảnh Sát cố tình tông xe cướp, ví dụ như: bay xe, xe cướp thắng gấp…</li>
-<li>Khi tội phạm bước xuống xe sẽ có <b>10 giây</b> để chạy. Sau 10 giây, Cảnh Sát được phép sử dụng súng điện để khống chế.</li>
-<li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
-<li>Ngoài ra khi đang truy dấu, nếu Cảnh Sát khác thấy phương tiện hoặc người dân có nhân dạng giống đối tượng đang truy dấu thì Cảnh Sát đó được phép bật còi truy đuổi theo để giữ dấu, đến khi các Cảnh Sát trong tình huống đến và tiếp tục tình huống.</li>
-</ul></div>
-<div class="tablebox"><table>
-<tr><th>Mức còi</th><th>Cảnh Sát được làm gì</th></tr>
-<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>. Nếu không chấp hành sẽ chuyển còi 2.</td></tr>
-<tr><td class="m">Còi 2</td><td>Được chặn đường, PIT xe đối tượng (tốc độ <b>dưới 80 km/h</b>) trong <b>5 phút</b>. Nếu xe đối tượng bị kẹt, có quyền chặn đường ra.
-<small>PIT: dùng đầu và đuôi xe để chèn vào góc xe đối tượng, dùng thân xe và góc đèn xe để ép vào đầu và thân xe đối tượng.</small></td></tr>
-<tr><td class="m">Còi 3</td><td>Tiến hành chặn đường, chèn, ép và PIT xe đối tượng <b class="r">không giới hạn tốc độ</b>.</td></tr>
-</table></div>
-
-<h3>Xe máy</h3>
-<div class="alert">Xe máy là phương tiện dễ bị ngã khi va chạm trong những tình huống truy đuổi, do đó sẽ <b>không được tính là Car Ramming</b>.</div>
-<div class="tablebox"><table>
-<tr><th>Mức còi</th><th>Thời gian đổi còi và quyền hạn</th></tr>
-<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>.
-<small>Nếu đối tượng có dấu hiệu đá thì bên phía Cảnh Sát sẽ chuyển sang còi 3.</small></td></tr>
-<tr><td class="m">Còi 2</td><td>Được phép gây cản trở phương tiện của đối tượng và sử dụng baton (tốc độ <b>dưới 80 km/h</b>).</td></tr>
-<tr><td class="m">Còi 3</td><td>Tiến hành sử dụng súng điện vào người đối tượng để vô hiệu hóa khả năng di chuyển, <b class="r">không giới hạn tốc độ</b>.
-<small>Áp dụng cho: truy đuổi sau 10 phút, vi phạm luật truy đuổi (Back-Up, Sửa Xe…), những tình huống không nằm trong phó bản…</small></td></tr>
-</table></div>
-
-<h3>Air-One</h3>
-<div class="box"><ul>
-<li>Chỉ được sử dụng Air-One trong các phó bản cho phép, truy đuổi hoặc truy dấu tội phạm vi phạm <b>Luật Truy Đuổi Xuống Nước</b>, tấn công PD.</li>
-<li>Air-One được phép sử dụng các tính năng được cung cấp sẵn để sẵn sàng hỗ trợ truy đuổi.</li>
-</ul></div>
-
-<h3>Truy dấu (áp dụng cho các tình huống vi phạm luật)</h3>
-<div class="alert">Thường sẽ áp dụng cho các vi phạm trong <b>Luật Phạt Chung</b> và <b>Luật Phương Tiện</b>.</div>
-<div class="box"><ul>
-<li>Nếu trốn thoát thành công thì sau <b>10 phút</b> mới có thể thay đổi trang phục, mặt nạ, phương tiện. Trong vòng 10 phút đó, Cảnh Sát phải bật đèn đi tìm. Nếu phát hiện người dân nào có các đặc điểm như trang phục, mặt nạ, phương tiện sẽ tiến hành kiểm tra, mời về đồn làm việc.</li>
-<li>Khi tội phạm bước xuống xe sẽ có <b>10 giây</b> để chạy. Sau 10 giây, Cảnh Sát được phép sử dụng súng điện để khống chế.</li>
-<li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
-</ul></div>
-<div class="two">
-<div class="box"><h3>Xe hơi (4 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe hơi.</p></div>
-<div class="box"><h3>Xe máy (2 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe máy.</p></div>
 </div>
 </section>
 </template>

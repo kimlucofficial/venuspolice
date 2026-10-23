@@ -10,6 +10,11 @@ var DATA = {
     { role: 'Chief Of Police',        name: 'Oc Tieu',      img: '' },
     { role: 'Sheriff',                name: 'Johnny Will',  img: '' }
   ],
+  /* Thành viên tự lấy từ Discord (avatar + tên) — hiện ở phần Ban lãnh đạo.
+     id: ID role Discord. title: tiêu đề hiển thị (bỏ trống sẽ dùng tên role trên Discord). */
+  discordRoles: [
+    { id: '1538867775865356339', title: 'Cảnh sát trưởng' }
+  ],
   forces: [
     { code: 'SASP', name: 'San Andreas State Police',       range: '800 – 899', img: '' },
     { code: 'LSPD', name: 'Los Santos Police Department',   range: '200 – 299', img: '' },

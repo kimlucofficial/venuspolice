@@ -8,7 +8,7 @@ Website tĩnh (HTML/CSS/JS thuần), không cần build. Deploy thẳng lên Ver
 index.html        Bố cục trang
 style.css         Toàn bộ giao diện
 data.js           Nội dung: Discord, ban lãnh đạo, lực lượng, cấp bậc, bảng xếp hạng
-laws.js           Nội dung 6 bộ luật
+laws.js           Nội dung 7 bộ luật
 main.js           Hiệu ứng, slide, tra cứu, bảng xếp hạng
 logo.webp, favicon.png, og.png
 vercel.json       Cấu hình Vercel
