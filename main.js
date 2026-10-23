@@ -18,12 +18,12 @@
       }
     });
     $('ros').innerHTML = '<g fill="none" stroke="#8d9cb8" stroke-width=".6">'+svg+'</g>';
-    $('hros').innerHTML = '<g fill="none" stroke="#8fdcff" stroke-width=".8">'+svg+'</g>';
+    $('hros').innerHTML = '<g fill="none" stroke="#9fe3ff" stroke-width=".8">'+svg+'</g>';
   })();
 
   $('discordBtn').href = DATA.discord;
   $('people').innerHTML = DATA.people.map(function(p){
-    return '<figure class="person panel'+(p.lead?' lead':'')+'">'+(p.lead?corners:'')+ph(p.img)+'<figcaption><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
+    return '<figure class="person panel'+(p.lead?' lead':'')+'"><div class="phw">'+(p.lead?corners:'')+ph(p.img)+'</div>'+'<figcaption><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
   }).join('');
   /* Ban lãnh đạo: tự lấy avatar + tên từ Discord */
   (function(){
@@ -284,8 +284,8 @@
       for (var i = 0; i < xs.length - 1; i++) for (var j = 0; j < ys.length - 1; j++){
         if (Math.random() < .55){
           var bx = xs[i] + 6, by = ys[j] + 6, bw = xs[i+1] - xs[i] - 12, bh = ys[j+1] - ys[j] - 12;
-          m.fillStyle = 'rgba(79,195,255,' + rnd(.012, .035) + ')'; m.fillRect(bx, by, bw, bh);
-          if (Math.random() < .35){ m.strokeStyle = 'rgba(79,195,255,.05)'; m.strokeRect(bx + .5, by + .5, bw, bh); }
+          m.fillStyle = 'rgba(41,182,255,' + rnd(.012, .035) + ')'; m.fillRect(bx, by, bw, bh);
+          if (Math.random() < .35){ m.strokeStyle = 'rgba(41,182,255,.05)'; m.strokeRect(bx + .5, by + .5, bw, bh); }
         }
       }
       /* đường phố */
@@ -294,7 +294,7 @@
       ys.forEach(function(y, i){ m.strokeStyle = 'rgba(110,170,230,' + (i % 3 === 0 ? .12 : .055) + ')'; m.lineWidth = i % 3 === 0 ? 1.4 : 1; m.beginPath(); m.moveTo(0, y); m.lineTo(W, y); m.stroke(); });
       /* đại lộ chéo + đường ven biển */
       m.strokeStyle = 'rgba(110,170,230,.10)'; m.lineWidth = 2; m.beginPath(); m.moveTo(-50, H * .9); m.lineTo(W * .75, -50); m.stroke();
-      m.strokeStyle = 'rgba(79,195,255,.08)'; m.lineWidth = 1; m.setLineDash([2, 6]); m.beginPath();
+      m.strokeStyle = 'rgba(41,182,255,.08)'; m.lineWidth = 1; m.setLineDash([2, 6]); m.beginPath();
       for (var k = 0; k <= 60; k++){ var px = W * k / 60, py = H * .93 + Math.sin(k / 6) * 22; k ? m.lineTo(px, py) : m.moveTo(px, py); } m.stroke(); m.setLineDash([]);
       /* đơn vị tuần tra */
       units = [];
