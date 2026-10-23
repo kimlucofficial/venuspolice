@@ -6,7 +6,7 @@ var DATA = {
   /* Ban lãnh đạo. discord: ID tài khoản Discord → tự lấy avatar + tên trong server.
      Muốn giữ cố định tên ghi ở đây thì thêm  lockName: true  */
   people: [
-    { role: 'Assistant Commissioner', name: 'James Wilson', img: '', discord: '438691814099386370' },
+    { role: 'Assistant Commissioner', name: 'James Wilson', img: '', discord: '874277324026150913', lockName: true },
     { role: 'Commissioner',           name: 'Phước Amory',  img: '', discord: '946006418773925939', lead: true },
     { role: 'Deputy Commissioner',    name: 'Lebill',       img: '', discord: '520037888180748288' },
     { role: 'Chief Of Police',        name: 'Oc Tieu',      img: '', discord: '872509209693003776' },

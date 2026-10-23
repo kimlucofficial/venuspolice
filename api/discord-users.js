@@ -11,7 +11,7 @@
 const API = 'https://discord.com/api/v10';
 const DEFAULT_IDS = [
   '946006418773925939',  // Commissioner
-  '438691814099386370',  // Assistant Commissioner
+  '874277324026150913',  // Assistant Commissioner
   '520037888180748288',  // Deputy Commissioner
   '872509209693003776',  // Chief Of Police
   '1086562058717376542', // Sheriff

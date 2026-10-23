@@ -23,7 +23,7 @@
 
   $('discordBtn').href = DATA.discord;
   $('people').innerHTML = DATA.people.map(function(p){
-    return '<figure class="person panel'+(p.lead?' lead':'')+'">'+(p.lead?corners:'')+ph(p.img)+'<figcaption data-i="'+String(DATA.people.indexOf(p)+1).padStart(2,'0')+'"><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
+    return '<figure class="person panel'+(p.lead?' lead':'')+'">'+(p.lead?corners:'')+ph(p.img)+'<figcaption><div class="role">'+esc(p.role)+'</div><div class="who">'+esc(p.name)+'</div></figcaption></figure>';
   }).join('');
   /* Ban lãnh đạo: tự lấy avatar + tên từ Discord */
   (function(){

@@ -1198,3 +1198,11 @@ body.locked #deck,body.locked .deckbar,body.locked .dots,body.locked .beamline{v
 }
 @media (max-width:380px){.pd-nm{font-size:13.5px}.pd1 .pd-nm{font-size:15px}.pd-av{width:54px}.pd1 .pd-av{width:70px}}
 .pd.still .pd-blk,.pd.still .pd-who{animation:none}
+
+/* Ban lãnh đạo: không đánh số */
+.person figcaption{display:block}
+.person figcaption::before{display:none}
+.person .role,.person .who{grid-column:auto}
+.person .who{margin-top:4px}
+/* Ban lãnh đạo: người 1 và 3 cân bằng hai bên */
+@media (min-width:981px){.person:nth-child(1),.person:nth-child(3){margin-top:40px}}
