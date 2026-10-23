@@ -1114,7 +1114,7 @@ body.locked #deck,body.locked .deckbar,body.locked .dots,body.locked .beamline{v
 
 /* =================== Thành viên theo role Discord =================== */
 #roster{max-width:900px;margin:0 auto}
-.roster{margin-top:80px}
+.roster{margin:0 0 90px}
 .roster-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;margin-bottom:26px;border-bottom:1px solid var(--line3)}
 .roster-h b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,2vw,26px);letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 0 14px rgba(79,195,255,.35)}
 .roster-h span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
@@ -1130,6 +1130,6 @@ body.locked #deck,body.locked .deckbar,body.locked .dots,body.locked .beamline{v
 .rm figcaption{padding-top:12px}
 .rm .role{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rm .who{margin-top:2px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:720px){.roster{margin-top:56px}.roster-g{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:22px 14px}.rm .who{font-size:15.5px}}
+@media (max-width:720px){.roster{margin:0 0 60px}.roster-g{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:22px 14px}.rm .who{font-size:15.5px}}
 @media (max-width:380px){.roster-g{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){.rm{opacity:1!important;transform:none!important}}
