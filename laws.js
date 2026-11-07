@@ -357,6 +357,13 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Nếu có người <b>văng khỏi phương tiện</b> khi chạy trốn, cảnh sát được bắt giữ người đó và tiếp tục truy đuổi.</li>
 </ul></div>
 
+<h3>Xe backup</h3>
+<div class="box"><ul>
+<li>Đối tượng có dấu hiệu <b>xuống xe bỏ chạy</b> hoặc có ý định <b>lên phương tiện backup</b>: cảnh sát được <b class="r">khống chế ngay lập tức</b>.</li>
+<li>Backup phải có <b>sự chuẩn bị từ trước</b>: phải có hành động <b>gọi đàm</b> cho đồng đội.</li>
+<li>Không có hành động gọi đàm mà đồng đội vẫn biết vị trí: bị xem là <b class="r">MG</b>.</li>
+</ul></div>
+
 <h3>Không đáp ứng điều kiện</h3>
 <div class="box"><ul>
 <li>Cảnh sát được <b>còi 3 và áp chế ngay lập tức</b>.</li>
@@ -368,29 +375,23 @@ document.getElementById('lawSrc').innerHTML = `
 <section id="loai">
 <h2>Luật riêng từng loại cướp</h2>
 <p class="lead">Mỗi loại cướp có quy định riêng, chia theo 3 cấp độ. Bấm vào từng loại để xem chi tiết.</p>
-<!-- Thêm loại cướp: sao chép nguyên một khối <details class="heist">…</details>, đổi tên và dán nội dung vào <div class="hb">. Mẫu điền luật: xem khối "Trộm trụ điện" (bảng <div class="spec">). -->
+<!-- Thêm loại cướp: sao chép nguyên một khối <details class="heist">…</details>, đổi tên và dán nội dung vào <div class="hb">. Mẫu điền luật: xem bảng <div class="spec"> ở đầu Level 1. -->
 <div class="lvl" data-lv="1">
 <div class="lvl-h"><b>Level 1</b><span>4 loại</span></div>
-<div class="box lvl-r"><ul>
-<li>Quy định tối đa các thành viên tham gia là <b>4 người</b>.</li>
-<li>Số lượng phương tiện tham gia vào vụ cướp là <b>1 xe</b> (xe 4 chỗ và xe máy đều được).</li>
-</ul></div>
-<details class="heist"><summary><span class="hn">Trộm đồng hồ</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
-</div></details>
-<details class="heist"><summary><span class="hn">Trộm trụ điện</span><span class="hx"></span></summary><div class="hb">
-<div class="spec">
+<div class="spec lvl-r">
 <div><span>Người tối đa</span><p><b>4 người mỗi xe</b><small>Vượt số người tối đa thì hủy tình huống.</small></p></div>
+<div><span>Số xe</span><p><b>1 xe</b><small>Xe 4 chỗ và xe máy đều được.</small></p></div>
 <div><span>Người được ra tay</span><p>Đi 2 người: <b>1 người</b> ra tay. Đi 3 hoặc 4 người: <b>2 người</b> ra tay.<small>Tài xế luôn ngồi trên xe.</small></p></div>
 <div><span>Cảnh sát tối đa</span><p><b>3 xe cảnh sát</b> mỗi xe vi phạm<small>Không giới hạn loại xe cảnh sát.</small></p></div>
 <div><span>Phương tiện</span><p>Tịch thu phương tiện tham gia và áp dụng luật tịch thu.<small>Tính cả đồng phạm.</small></p></div>
 </div>
+<details class="heist"><summary><span class="hn">Trộm đồng hồ</span><span class="hx"></span></summary><div class="hb">
+</div></details>
+<details class="heist"><summary><span class="hn">Trộm trụ điện</span><span class="hx"></span></summary><div class="hb">
 </div></details>
 <details class="heist"><summary><span class="hn">Trộm mộ</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 <details class="heist"><summary><span class="hn">Trộm chó</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 </div>
 <div class="lvl" data-lv="2">
@@ -399,10 +400,8 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Áp dụng <b>Luật Vùng Đỏ</b>.</li>
 </ul></div>
 <details class="heist"><summary><span class="hn">Rã bánh xe</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 <details class="heist"><summary><span class="hn">Đào đá bẩn</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 </div>
 <div class="lvl" data-lv="3">
@@ -410,16 +409,13 @@ document.getElementById('lawSrc').innerHTML = `
 <div class="box lvl-r"><ul>
 <li>Quy định tối đa các thành viên tham gia là <b>4 người</b>.</li>
 <li>Số lượng phương tiện tham gia vào vụ cướp là <b>1 xe</b>, <b class="r">cấm xe máy</b>.</li>
-<li>Số lượng con tin là <b>1</b>.</li>
+<li>Các phó bản Level 3 là <b class="r">trọng tội</b>: cảnh sát được sử dụng <b>AIR1 (trực thăng)</b>.</li>
 </ul></div>
 <details class="heist"><summary><span class="hn">Trộm nhà</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 <details class="heist"><summary><span class="hn">Container</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 <details class="heist"><summary><span class="hn">Cướp ATM</span><span class="hx"></span></summary><div class="hb">
-<p class="tbd">Nội dung luật đang được cập nhật.</p>
 </div></details>
 </div>
 </section>
