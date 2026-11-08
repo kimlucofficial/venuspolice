@@ -64,24 +64,42 @@ var DATA = {
   stats: {
   },
 
-  /* Bảng xếp hạng — DỮ LIỆU MẪU. Thay bằng số liệu thật:
-     week / month / all = [giờ trực, bắt giữ, cuộc gọi]; prev = hạng tuần trước */
+  /* Bảng xếp hạng — số liệu từ file lương (vns-1.xlsx).
+     week / month / all = [giờ trực, bắt giữ, cuộc gọi]
+     Khi web lấy được danh sách Discord, mỗi người được ghép theo callsign, rồi tới tên gần nhất. */
   points: { hours: 10, arrests: 25, calls: 5 },
   officers: [
-    { name: 'Sĩ quan A', cs: 'LSPD-214', rank: 'Sergeant',       unit: 'LSPD', week: [38, 14, 52], month: [142, 51, 198], all: [610, 233, 802] },
-    { name: 'Sĩ quan B', cs: 'SASP-812', rank: 'Trooper',        unit: 'SASP', week: [41, 9, 47],  month: [150, 40, 171], all: [588, 190, 744] },
-    { name: 'Sĩ quan C', cs: 'BCSO-305', rank: 'Senior Deputy',  unit: 'BCSO', week: [33, 12, 40], month: [128, 46, 166], all: [540, 205, 690] },
-    { name: 'Sĩ quan D', cs: 'LSPD-227', rank: 'Officer',        unit: 'LSPD', week: [29, 11, 44], month: [119, 39, 160], all: [431, 151, 602] },
-    { name: 'Sĩ quan E', cs: 'SASP-834', rank: 'Corporal',       unit: 'SASP', week: [35, 7, 38],  month: [131, 31, 150], all: [499, 128, 577] },
-    { name: 'Sĩ quan F', cs: 'BCSO-318', rank: 'Deputy',         unit: 'BCSO', week: [27, 10, 36], month: [104, 37, 139], all: [388, 140, 520] },
-    { name: 'Sĩ quan G', cs: 'LSPD-241', rank: 'Senior Officer', unit: 'LSPD', week: [24, 9, 41],  month: [99, 35, 151],  all: [402, 133, 560] },
-    { name: 'Sĩ quan H', cs: 'SASP-851', rank: 'Trooper',        unit: 'SASP', week: [26, 6, 33],  month: [97, 28, 129],  all: [350, 101, 470] },
-    { name: 'Sĩ quan I', cs: 'BCSO-322', rank: 'Deputy',         unit: 'BCSO', week: [22, 8, 30],  month: [91, 30, 118],  all: [301, 111, 433] },
-    { name: 'Sĩ quan K', cs: 'LSPD-256', rank: 'Officer',        unit: 'LSPD', week: [20, 7, 29],  month: [84, 26, 112],  all: [290, 92, 401] },
-    { name: 'Sĩ quan L', cs: 'SASP-866', rank: 'Corporal',       unit: 'SASP', week: [18, 6, 25],  month: [76, 24, 101],  all: [276, 88, 377] },
-    { name: 'Sĩ quan M', cs: 'BCSO-339', rank: 'Deputy',         unit: 'BCSO', week: [16, 5, 22],  month: [70, 20, 93],   all: [240, 75, 330] },
-    { name: 'Sĩ quan N', cs: 'CADET-604', rank: 'Cadet',         unit: 'LSPD', week: [15, 3, 20],  month: [41, 8, 55],    all: [41, 8, 55] },
-    { name: 'Sĩ quan O', cs: 'CADET-611', rank: 'Solo Cadet',    unit: 'SASP', week: [12, 2, 18],  month: [36, 6, 47],    all: [36, 6, 47] }
+    { name: 'Phước Amory', cs: 'SASP-877', rank: 'Commissioner', unit: 'SASP', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Tra Da', cs: 'SASP-817', rank: 'Deputy Commissioner', unit: 'SASP', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'James Wilson', cs: 'SASP-888', rank: 'Assistant Commissioner', unit: 'SASP', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Le Bill', cs: 'SASP-800', rank: 'Assistant Commissioner', unit: 'SASP', week: [2, 0, 0], month: [2, 0, 0], all: [2, 0, 0] },
+    { name: 'Tra Dao', cs: 'SASP-819', rank: 'Secretary', unit: 'SASP', week: [40, 0, 0], month: [40, 0, 0], all: [40, 0, 0] },
+    { name: 'Oc Tieu', cs: 'LSPD-232', rank: 'Chief of Police', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Eric Amory', cs: 'LSPD-244', rank: 'Assistant Chief', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Young White', cs: 'LSPD-214', rank: 'Corporal', unit: 'LSPD', week: [24.6, 0, 0], month: [24.6, 0, 0], all: [24.6, 0, 0] },
+    { name: 'Jones Xù', cs: 'LSPD-225', rank: 'Corporal', unit: 'LSPD', week: [12.3, 0, 0], month: [12.3, 0, 0], all: [12.3, 0, 0] },
+    { name: 'Steven Tuấn', cs: 'LSPD-222', rank: 'Senior Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Duc Thai', cs: 'LSPD-202', rank: 'Officer', unit: 'LSPD', week: [59.9, 0, 0], month: [59.9, 0, 0], all: [59.9, 0, 0] },
+    { name: 'Mr Ti', cs: 'LSPD-234', rank: 'Officer', unit: 'LSPD', week: [47.2, 0, 0], month: [47.2, 0, 0], all: [47.2, 0, 0] },
+    { name: 'Đức Đom Đóm', cs: 'LSPD-247', rank: 'Officer', unit: 'LSPD', week: [54.9, 0, 0], month: [54.9, 0, 0], all: [54.9, 0, 0] },
+    { name: 'Mango Nie', cs: 'LSPD-200', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'EnAyTi HT', cs: 'LSPD-201', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Hí Bá Khí', cs: 'LSPD-203', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Mr Avjnh', cs: 'LSPD-212', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Danny Loco', cs: 'LSPD-219', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Sung Jinwoo', cs: 'LSPD-246', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Kytis Rijz', cs: 'LSPD-289', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Cacao Latte', cs: 'LSPD-298', rank: 'Officer', unit: 'LSPD', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Kenji Sullivan', cs: 'BCSO-366', rank: 'Sheriff', unit: 'BCSO', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Pixi Nguyen', cs: 'BCSO-314', rank: 'Chief Deputy', unit: 'BCSO', week: [19, 0, 0], month: [19, 0, 0], all: [19, 0, 0] },
+    { name: 'Johnny Đen', cs: 'BCSO-300', rank: 'Lieutenant', unit: 'BCSO', week: [11.8, 0, 0], month: [11.8, 0, 0], all: [11.8, 0, 0] },
+    { name: 'Krik Mcan', cs: 'BCSO-333', rank: 'Sergeant', unit: 'BCSO', week: [34.2, 0, 0], month: [34.2, 0, 0], all: [34.2, 0, 0] },
+    { name: 'Longmal Baso', cs: 'BCSO-320', rank: 'Senior Deputy', unit: 'BCSO', week: [35.6, 0, 0], month: [35.6, 0, 0], all: [35.6, 0, 0] },
+    { name: 'Nira Babii', cs: 'BCSO-322', rank: 'Senior Deputy', unit: 'BCSO', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Puc Puc', cs: 'BCSO-312', rank: 'Deputy', unit: 'BCSO', week: [6.8, 0, 0], month: [6.8, 0, 0], all: [6.8, 0, 0] },
+    { name: 'Zayn Zayn', cs: 'BCSO-310', rank: 'Deputy', unit: 'BCSO', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Pu Pico', cs: 'BCSO-303', rank: 'Deputy', unit: 'BCSO', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] },
+    { name: 'Benjamin Maxwell', cs: 'BCSO-317', rank: 'Deputy', unit: 'BCSO', week: [0, 0, 0], month: [0, 0, 0], all: [0, 0, 0] }
   ]
 };
 if (typeof module !== 'undefined') module.exports = DATA;

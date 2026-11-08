@@ -17,7 +17,7 @@ vercel.json       Cấu hình Vercel
 ## Sửa nội dung
 
 - **Link Discord, ban lãnh đạo, ảnh:** `data.js` → `discord`, `people` (dán link ảnh vào `img`).
-- **Bảng xếp hạng:** `data.js` → `officers` (hiện là dữ liệu mẫu) và `points` (hệ số điểm).
+- **Bảng xếp hạng:** `data.js` → `officers` (số liệu thật, tự ghép với Discord theo callsign rồi tên gần nhất) và `points` (hệ số điểm).
 - **Bộ luật:** `laws.js`. Thêm loại cướp: sao chép một khối `<details class="heist">…</details>`.
 
 ## Chạy thử trên máy

@@ -165,7 +165,7 @@
   var LB = { p: 'week', u: 'ALL', k: 'score', q: '' }, P = DATA.points;
   var PREV = { week: 'month', month: 'all', all: 'all' };
   function rows(period){
-    return DATA.officers.map(function(o){ var v = o[period] || [0, 0, 0]; return { o: o, hours: v[0], arrests: v[1], calls: v[2], score: v[0]*P.hours + v[1]*P.arrests + v[2]*P.calls }; });
+    return DATA.officers.map(function(o){ var v = o[period] || [0, 0, 0]; return { o: o, hours: v[0], arrests: v[1], calls: v[2], score: Math.round(v[0]*P.hours + v[1]*P.arrests + v[2]*P.calls) }; });
   }
   function key(o){ return o.id || o.cs; }
   function sub(o){ return esc(o.cs) + (o.rank ? ' · ' + esc(o.rank) : ''); }
@@ -255,12 +255,53 @@
   var lbIO = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !lbShown){ lbShown = true; firstRows = true; render(); lbIO.disconnect(); } }); }, { threshold: .15 });
   lbIO.observe($('podium'));
 
+  /* Ghép sĩ quan Discord với bảng số liệu: trùng callsign trước, sau đó tới tên gần nhất */
+  function nameKey(s){ return String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().replace(/[^a-z0-9]/g,''); }
+  function pairs(s){ var o = {}, i; for (i = 0; i < s.length - 1; i++){ var p = s.substr(i,2); o[p] = (o[p] || 0) + 1; } return o; }
+  function similar(a, b){
+    if (a === b) return 1;
+    if (a.length < 2 || b.length < 2) return 0;
+    var A = pairs(a), B = pairs(b), hit = 0, k;
+    for (k in A) if (B[k]) hit += Math.min(A[k], B[k]);
+    return 2 * hit / (a.length + b.length - 2);
+  }
+  /* Tên Discord chỉ ghi một phần tên, vd "Pixi" với "Pixi Nguyen" */
+  function words(s){ return String(s).split(/[\s._-]+/).map(nameKey).filter(Boolean); }
+  function partOf(a, b){
+    var A = words(a), B = words(b);
+    if (nameKey(a).length < 3 || !A.length) return 0;
+    return A.every(function(w){ return B.indexOf(w) > -1; }) ? 0.8 : 0;
+  }
+  function csNum(cs){ var m = String(cs || '').match(/\d+/); return m ? m[0] : ''; }
+  function matchRoster(list, roster){
+    var res = {}, free = roster.slice(), left = [];
+    list.forEach(function(o){
+      var n = csNum(o.cs), i = n ? free.findIndex(function(r){ return csNum(r.cs) === n; }) : -1;
+      if (i > -1) res[o.id] = free.splice(i,1)[0]; else left.push(o);
+    });
+    var c = [];
+    left.forEach(function(o){
+      var a = nameKey(o.name), sc = free.map(function(r, i){ return { o: o, r: r, i: i, v: Math.max(similar(a, nameKey(r.name)), partOf(o.name, r.name)) }; }).sort(function(x,y){ return y.v - x.v; });
+      if (!sc[0] || sc[0].v < 0.7) return;
+      if (sc[0].v < 1 && sc[1] && sc[0].v - sc[1].v < 0.05) return;
+      c.push(sc[0]);
+    });
+    var used = {};
+    c.sort(function(x,y){ return y.v - x.v; }).forEach(function(m){
+      if (used[m.i] || res[m.o.id]) return;
+      used[m.i] = 1; res[m.o.id] = m.r;
+    });
+    return res;
+  }
+
   /* Danh sách sĩ quan tự lấy từ Discord (role cảnh sát + name tag) */
   if (location.protocol !== 'file:') fetch('/api/discord-officers').then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
     if (!d || !d.officers || !d.officers.length) return;
-    var S = DATA.stats || {};
-    DATA.officers = d.officers.map(function(o){ var st = S[o.id] || {}; return { id: o.id, name: o.name, cs: o.cs, unit: o.unit, avatar: o.avatar, rank: st.rank || '', week: st.week, month: st.month, all: st.all }; });
-    var note = document.querySelector('.lb-note'); if (note) note.hidden = true;
+    var S = DATA.stats || {}, M = matchRoster(d.officers, DATA.officers);
+    DATA.officers = d.officers.map(function(o){
+      var st = S[o.id], f = M[o.id] || {}, base = st || f, hasNum = /\d/.test(o.cs);
+      return { id: o.id, name: o.name, cs: hasNum || !f.cs ? o.cs : f.cs, unit: f.unit || o.unit, avatar: o.avatar, rank: base.rank || f.rank || '', week: base.week, month: base.month, all: base.all };
+    });
     lastKey = ''; firstRows = true; render();
   }).catch(function(){});
 
