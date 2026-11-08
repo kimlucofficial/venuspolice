@@ -228,7 +228,18 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 </template>
 
-<template id="law-truyduoi" data-short="Truy Đuổi" data-title="Luật Truy Đuổi" data-intro="Áp dụng cho mọi tình huống truy đuổi: mức còi, quyền hạn của cảnh sát với xe hơi, xe máy, Air-One và truy dấu sau khi đối tượng trốn thoát." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
+<template id="law-truyduoi" data-short="Truy Đuổi" data-title="Luật Truy Đuổi" data-intro="Áp dụng cho mọi tình huống truy đuổi: quy định truy đuổi, quyền hạn của cảnh sát với xe hơi, xe máy, Air-One và truy dấu sau khi đối tượng trốn thoát." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
+<section id="quydinh">
+<h2>Quy định truy đuổi</h2>
+<p class="lead">Khi truy đuổi, cảnh sát được phép bám theo dấu đối tượng.</p>
+<div class="box"><ul>
+<li>Phương tiện của đối tượng gặp tình trạng <b>Traffic (kẹt xe)</b>, đi vào <b>đường cụt</b>, thực hiện hành vi <b>Bay Xe Fail</b> dẫn đến phương tiện dừng đột ngột, hoặc di chuyển với tốc độ <b>dưới 80 km/h</b>: các sĩ quan có quyền <b>Block</b> hoặc <b>PIT</b> phương tiện của đối tượng.</li>
+<li>Trong các trường hợp trên, cảnh sát được phép <b>chặn đầu và chặn đuôi</b> phương tiện, tạo thế gọng kìm để khống chế đối tượng.</li>
+<li>Nếu đối tượng thoát khỏi vòng vây, cảnh sát được phép <b>tiếp tục truy đuổi</b>.</li>
+</ul></div>
+<div class="alert">Sau <b>7 phút</b> truy đuổi, cảnh sát được phép PIT xe <b class="r">không giới hạn tốc độ</b>.</div>
+</section>
+
 <section id="chung">
 <h2>Nguyên tắc chung</h2>
 <p class="lead">Áp dụng cho mọi tình huống truy đuổi.</p>
@@ -248,26 +259,11 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
 <li>Ngoài ra khi đang truy dấu, nếu Cảnh Sát khác thấy phương tiện hoặc người dân có nhân dạng giống đối tượng đang truy dấu thì Cảnh Sát đó được phép bật còi truy đuổi theo để giữ dấu, đến khi các Cảnh Sát trong tình huống đến và tiếp tục tình huống.</li>
 </ul></div>
-<div class="tablebox"><table>
-<tr><th>Mức còi</th><th>Cảnh Sát được làm gì</th></tr>
-<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>. Nếu không chấp hành sẽ chuyển còi 2.</td></tr>
-<tr><td class="m">Còi 2</td><td>Được chặn đường, PIT xe đối tượng (tốc độ <b>dưới 80 km/h</b>) trong <b>5 phút</b>. Nếu xe đối tượng bị kẹt, có quyền chặn đường ra.
-<small>PIT: dùng đầu và đuôi xe để chèn vào góc xe đối tượng, dùng thân xe và góc đèn xe để ép vào đầu và thân xe đối tượng.</small></td></tr>
-<tr><td class="m">Còi 3</td><td>Tiến hành chặn đường, chèn, ép và PIT xe đối tượng <b class="r">không giới hạn tốc độ</b>.</td></tr>
-</table></div>
 </section>
 
 <section id="xemay">
 <h2>Xe máy</h2>
 <div class="alert">Xe máy là phương tiện dễ bị ngã khi va chạm trong những tình huống truy đuổi, do đó sẽ <b>không được tính là Car Ramming</b>.</div>
-<div class="tablebox"><table>
-<tr><th>Mức còi</th><th>Thời gian đổi còi và quyền hạn</th></tr>
-<tr><td class="m">Còi 1</td><td>Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>.
-<small>Nếu đối tượng có dấu hiệu đá thì bên phía Cảnh Sát sẽ chuyển sang còi 3.</small></td></tr>
-<tr><td class="m">Còi 2</td><td>Được phép gây cản trở phương tiện của đối tượng và sử dụng baton (tốc độ <b>dưới 80 km/h</b>).</td></tr>
-<tr><td class="m">Còi 3</td><td>Tiến hành sử dụng súng điện vào người đối tượng để vô hiệu hóa khả năng di chuyển, <b class="r">không giới hạn tốc độ</b>.
-<small>Áp dụng cho: truy đuổi sau 10 phút, vi phạm luật truy đuổi (Back-Up, Sửa Xe…), những tình huống không nằm trong phó bản…</small></td></tr>
-</table></div>
 </section>
 
 <section id="airone">
@@ -287,10 +283,6 @@ document.getElementById('lawSrc').innerHTML = `
 <li>Khi tội phạm bước xuống xe sẽ có <b>10 giây</b> để chạy. Sau 10 giây, Cảnh Sát được phép sử dụng súng điện để khống chế.</li>
 <li>Cảnh Sát được quyền còng tội phạm khi đã bắn súng điện, tự ngã hoặc không di chuyển nữa.</li>
 </ul></div>
-<div class="two">
-<div class="box"><h3>Xe hơi (4 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe hơi.</p></div>
-<div class="box"><h3>Xe máy (2 bánh)</h3><p>Các hành động trong các còi áp dụng như luật đã ghi ở phần Xe máy.</p></div>
-</div>
 </section>
 </template>
 
