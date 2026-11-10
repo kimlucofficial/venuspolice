@@ -231,13 +231,16 @@ document.getElementById('lawSrc').innerHTML = `
 <template id="law-truyduoi" data-short="Truy Đuổi" data-title="Luật Truy Đuổi" data-intro="Áp dụng cho mọi tình huống truy đuổi: quy định truy đuổi, quyền hạn của cảnh sát với xe hơi, xe máy, Air-One và truy dấu sau khi đối tượng trốn thoát." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
 <section id="quydinh">
 <h2>Quy định truy đuổi</h2>
-<p class="lead">Khi truy đuổi, cảnh sát được phép bám theo dấu đối tượng.</p>
-<div class="box"><ul>
-<li>Phương tiện của đối tượng gặp tình trạng <b>Traffic (kẹt xe)</b>, đi vào <b>đường cụt</b>, thực hiện hành vi <b>Bay Xe Fail</b> dẫn đến phương tiện dừng đột ngột, hoặc di chuyển với tốc độ <b>dưới 80 km/h</b>: các sĩ quan có quyền <b>Block</b> hoặc <b>PIT</b> phương tiện của đối tượng.</li>
-<li>Trong các trường hợp trên, cảnh sát được phép <b>chặn đầu và chặn đuôi</b> phương tiện, tạo thế gọng kìm để khống chế đối tượng.</li>
-<li>Nếu đối tượng thoát khỏi vòng vây, cảnh sát được phép <b>tiếp tục truy đuổi</b>.</li>
+<div class="box"><h3>Xe hơi</h3><ul>
+<li><b>Còi 1:</b> Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>.</li>
+<li><b>Còi 2:</b> Được chặn đường bay, chèn và ép giảm tốc xe khi vào khúc bay. Nếu xe đối tượng bị kẹt, có quyền chặn đường ra trong <b>2 phút</b>.</li>
+<li><b>Còi 3:</b> Sau <b>1 phút</b>, tiến hành <b class="r">TRIỆT HẠ</b> bằng tất cả các phương thức khác nhau!</li>
 </ul></div>
-<div class="alert">Sau <b>7 phút</b> truy đuổi, cảnh sát được phép PIT xe <b class="r">không giới hạn tốc độ</b>.</div>
+<div class="box"><h3>Xe máy</h3><ul>
+<li><b>Còi 1:</b> Chỉ được quyền theo dấu, cảnh báo dừng xe trong <b>2 phút</b>. Nếu đối tượng có dấu hiệu đá thì bên phía Cảnh Sát sẽ chuyển sang <b>Còi 3</b>.</li>
+<li><b>Còi 2:</b> Được phép gây cản trở phương tiện của đối tượng và sử dụng baton trong <b>2 phút</b>.</li>
+<li><b>Còi 3:</b> Sau <b>1 phút</b>, tiến hành sử dụng súng điện vào người đối tượng để vô hiệu hóa khả năng di chuyển, <b class="r">KHÔNG giới hạn tốc độ</b>.</li>
+</ul></div>
 </section>
 
 <section id="chung">
@@ -452,6 +455,7 @@ document.getElementById('lawSrc').innerHTML = `
 <section id="duoc">
 <h2>Khi nào được tấn công PD?</h2>
 <p class="lead">Chỉ cần câu chuyện của nhân vật bạn đủ thuyết phục. Dưới đây là các lý do được chấp nhận.</p>
+<div class="alert">Khi người dân có dấu hiệu rút vũ khí ra khi đang tương tác với PD, thì PD sẽ ngay lập tức được phép sử dụng toàn bộ khí tài để khống chế đối tượng bằng bất kì cách thức nào để đảm bảo an toàn!</div>
 <div class="two">
 <div class="box ok"><h3>Được coi là hợp lý</h3><ul>
 <li>PD ập vào vùng đỏ hoặc nơi bạn đang làm việc phi pháp và bạn không muốn bị bắt.</li>
