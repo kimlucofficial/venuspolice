@@ -433,6 +433,48 @@ document.getElementById('lawSrc').innerHTML = `
 </section>
 </template>
 
+<template id="law-taphoa" data-short="Tạp Hóa" data-title="Luật Cướp Tạp Hóa" data-intro="Cướp tạp hóa thuộc Level 3. Bên cướp chọn một trong hai option: giao tranh với PD hoặc truy đuổi.">
+<section id="trangbi">
+<h2>Trang bị</h2>
+<div class="box"><ul>
+<li>Phải đeo mặt nạ che kín <b>100%</b> khuôn mặt.</li>
+<li>Không đeo mặt nạ: cảnh sát được <b class="r">xác định danh tính và truy nã ngay lập tức</b>.</li>
+</ul></div>
+</section>
+
+<section id="giaotranh">
+<h2>Option giao tranh với PD</h2>
+<div class="two">
+<div class="box"><h3>Số lượng</h3><ul>
+<li><b>5 người dân</b> đối đầu <b>7 PD</b>.</li>
+<li>Không đủ 5 người: được thỏa thuận với PD về số lượng hợp lý.</li>
+</ul></div>
+<div class="box"><h3>Trang bị được dùng</h3><ul>
+<li>Người dân: vũ khí, băng gạc, giáp.</li>
+<li>PD: 3ton, giáp, băng gạc...</li>
+</ul></div>
+</div>
+
+<h3>Sau khi giao tranh</h3>
+<div class="box"><ul>
+<li><b>PD down hết:</b> người dân được tiếp tục hoàn thành vụ cướp và nhanh chóng rời khỏi khu vực.</li>
+<li><b>Bên cướp down hết:</b> kết thúc giao tranh. Người dân phải <b class="r">hợp tác 100%</b> với PD để chuyển sang tình huống bắt giữ.</li>
+<li>Tình huống bắt giữ: PD tập trung các đối tượng, đưa về bệnh viện cứu chữa, sau đó đưa về đồn PD để xử án.</li>
+</ul></div>
+<div class="alert">Cố tình không hợp tác với PD (bỏ chạy, gọi backup, tấn công PD, người ngoài vụ giao tranh tạp hóa tham gia vào tình huống...) bị tính là sai luật và bị xử phạt theo <b class="r">luật NonRP</b>, vì mọi người đã chọn option giao tranh.</div>
+</section>
+
+<section id="truyduoi">
+<h2>Option truy đuổi</h2>
+<div class="box"><ul>
+<li>Bắt buộc có <b>1 con tin</b>.</li>
+<li>Tối thiểu <b>3 người cướp</b>: 1 người cướp, 1 người target con tin, 1 người ở phương tiện.</li>
+<li>Bên cướp lơ là, không target con tin khiến con tin có thể chạy thoát: PD được <b class="r">khống chế các đối tượng ngay lập tức</b>.</li>
+<li>Áp dụng <b>Luật Truy Đuổi</b>.</li>
+</ul></div>
+</section>
+</template>
+
 <template id="law-tancong" data-short="Tấn Công PD" data-title="Luật Tấn Công PD và Vùng Đỏ" data-intro="Người dân được phép đối đầu với cảnh sát ở bất kỳ đâu, miễn là có lý do roleplay hợp lý và làm đúng quy trình. Cảnh sát cũng phải làm đúng phần của mình. Làm đúng luật này thì không ai phải khiếu nại." data-credit="Nội dung gốc thuộc về Le Bill và Johnson Larry.">
 <section id="apdung">
 <h2>Phạm vi áp dụng</h2>
